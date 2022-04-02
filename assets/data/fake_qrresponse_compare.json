@@ -1,0 +1,62 @@
+{
+    "title": "Detalle del Producto",
+    "action": null,
+    "fields": [
+        {
+            "type": "text",
+            "value": "Gelatina Reno",
+            "fieldOptions": {
+                "width": 0,
+                "height": 0,
+                "multiline": false,
+                "align": "center",
+                "color": ""
+            },
+            "listValues": null,
+            "gridColumns": null,
+            "gridValues": null
+        },
+        {
+            "type": "text",
+            "value": "Fecha de Empaque: 19/05/2021",
+            "fieldOptions": {
+                "width": 0,
+                "height": 0,
+                "multiline": false,
+                "align": "center",
+                "color": ""
+            },
+            "listValues": null,
+            "gridColumns": null,
+            "gridValues": null
+        },
+        {
+            "type": "image",
+            "value": "http://corporativo.esperanza.mx/assets/images/logos/sethemba.png",
+            "fieldOptions": {
+                "width": 200,
+                "height": 200,
+                "multiline": false,
+                "align": "center",
+                "color": null
+            },
+            "listValues": null,
+            "gridColumns": null,
+            "gridValues": null
+        },
+        {
+            "type": "text",
+            "value": "Descripción del producto",
+            "fieldOptions": {
+                "width": 0,
+                "height": 0,
+                "multiline": true,
+                "align": "center",
+                "color": ""
+            },
+            "listValues": null,
+            "gridColumns": null,
+            "gridValues": null
+        }
+    ]
+}

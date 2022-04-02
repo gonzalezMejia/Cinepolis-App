@@ -1,0 +1,81 @@
+[
+  {
+    "icon": "58136",
+    "labelText": "Inicio",
+    "route": "/main",
+    "items": null
+  },
+  {
+    "icon": "58892",
+    "labelText": "Sucursal",
+    "route": null,
+    "items": [
+      {
+        "icon": "58458",
+        "labelText": "Inicio",
+        "route": "/main",
+        "items": null
+      },
+      {
+        "icon": "58458",
+        "labelText": "Apertura de cajas",
+        "route": "/box_opening",
+        "items": null
+      },
+      {
+        "icon": "57734",
+        "labelText": "Tickets",
+        "route": "/ticket",
+        "items": null
+      },
+      {
+        "icon": "61224",
+        "labelText": "Cancelaciones",
+        "route": "/cancellations",
+        "items": null
+      },
+      {
+        "icon": "57745",
+        "labelText": "Corte",
+        "route": "/zcut",
+        "items": null
+      },
+      {
+        "icon": "62155",
+        "labelText": "Preciadores",
+        "route": "/price_labels",
+        "items": null
+      },
+      {
+        "icon": "62155",
+        "labelText": "Reportes",
+        "route": "/reports",
+        "items": null
+      }
+    ]
+  },
+  {
+    "icon": "57855",
+    "labelText": "Traslados",
+    "route": "/transfers",
+    "items": null
+  },
+  {
+    "icon": "62811",
+    "labelText": "Pedidos",
+    "route": "/orders",
+    "items": null
+  },
+  {
+    "icon": "57908",
+    "labelText": "Mantenimiento",
+    "route": "/maintenance_ticket",
+    "items": null
+  },
+  {
+    "icon": "58244",
+    "labelText": "Quizzer",
+    "route": "/quizzer",
+    "items": null
+  }
+]

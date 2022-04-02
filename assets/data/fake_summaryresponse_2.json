@@ -1,0 +1,330 @@
+[
+    {
+        "title": "Traslados",
+        "action": {
+            "text": null,
+            "icon": "list",
+            "route": "/transfers"
+        },
+        "fields": [
+            {
+                "type": "text",
+                "value": "0",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 30,
+                    "color": "#03a9f4"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            },
+            {
+                "type": "text",
+                "value": "Traslados Pendientes",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 12,
+                    "color": "#ccccccc"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            },
+            {
+                "type": "text",
+                "value": "Completados: 0",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 10,
+                    "color": "#ccccccc"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            }
+        ]
+    },
+    {
+        "title": "Producción",
+        "action": {
+            "text": null,
+            "icon": "list",
+            "route": null
+        },
+        "fields": [
+            {
+                "type": "text",
+                "value": "0",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 30,
+                    "color": "#f44336"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            },
+            {
+                "type": "text",
+                "value": "Producción pendiente de validar",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 12,
+                    "color": "#ccccccc"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            },
+            {
+                "type": "text",
+                "value": "Validadas: 0",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 10,
+                    "color": "#ccccccc"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            }
+        ]
+    },
+    {
+        "title": "Incidencias",
+        "action": {
+            "text": null,
+            "icon": "list",
+            "route": "/incidences"
+        },
+        "fields": [
+            {
+                "type": "text",
+                "value": "0",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 30,
+                    "color": "#ff9800"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            },
+            {
+                "type": "text",
+                "value": "Incidencias",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 12,
+                    "color": "#ccccccc"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            },
+            {
+                "type": "text",
+                "value": "Incidencias: 0",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 10,
+                    "color": "#ccccccc"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            },
+            {
+                "type": "text",
+                "value": "Incidencias de Monitoreo: 0",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 10,
+                    "color": "#ccccccc"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            },
+            {
+                "type": "text",
+                "value": "Sanciones: 0",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 10,
+                    "color": "#ccccccc"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            },
+            {
+                "type": "text",
+                "value": "Bajas: 0",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 10,
+                    "color": "#ccccccc"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            },
+            {
+                "type": "text",
+                "value": "Cambios: 0",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 10,
+                    "color": "#ccccccc"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            }
+        ]
+    },
+    {
+        "title": "Pedidos",
+        "action": {
+            "text": null,
+            "icon": "list",
+            "route": null
+        },
+        "fields": [
+            {
+                "type": "text",
+                "value": "0",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 30,
+                    "color": "#607d8b"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            },
+            {
+                "type": "text",
+                "value": "Pedidos Pendientes",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 12,
+                    "color": "#ccccccc"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            },
+            {
+                "type": "text",
+                "value": "Pedidos entregados: 0",
+                "fieldOptions": {
+                    "width": null,
+                    "heigth": null,
+                    "multiline": null,
+                    "align": "center",
+                    "fontSize": 10,
+                    "color": "#ccccccc"
+                },
+                "label": null,
+                "color": null,
+                "listValue": null,
+                "gridSplitChar": null,
+                "gridColumns": null,
+                "gridValues": null
+            }
+        ]
+    }
+]

@@ -1,0 +1,9 @@
+{
+    "title": "",
+    "action": {
+        "text": "",
+        "icon": "",
+        "route": "/invoice_detail?ticket=2345"
+    },
+    "fields": []
+}

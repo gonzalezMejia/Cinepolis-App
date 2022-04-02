@@ -1,0 +1,131 @@
+{
+    "title": "Prueba de Título",
+    "action": {
+        "text": "Facturar",
+        "icon": "add",
+        "route": "/transfers"
+    },
+    "fields": [
+        {
+            "type": "image",
+            "value": "http://corporativo.esperanza.mx/assets/images/logos/sethemba.png",
+            "fieldOptions": {
+                "width": 200,
+                "heigth": 200
+            }
+        },
+        {
+            "type": "text",
+            "value": "Traslados",
+            "fieldOptions": {
+                "width": 200,
+                "heigth": 200,
+                "multiline": false,
+                "align": "center",
+                "fontSize": 30.0,
+                "color": "#CCCCCC"
+            }
+        },
+        {
+            "type": "text",
+            "value": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text",
+            "fieldOptions": {
+                "width": 300
+            }
+        },
+        {
+            "type": "link",
+            "label": "Mas información...",
+            "value": "/profile"
+        },
+        {
+            "type": "grid",
+            "value": null,
+            "gridSplitChar": "|",
+            "gridColumns": [
+                {
+                    "name": "Header 1"
+                },
+                {
+                    "name": "Header 2"
+                }
+            ],
+            "gridValues": [
+                {
+                    "content": "Row 1,1|Row 1,2",
+                    "link": null
+                },
+                {
+                    "content": "Row 2,1|Row 2,2",
+                    "link": null
+                }
+            ]
+        },
+        {
+            "type": "button",
+            "label": "Click aqui",
+            "value": "/profile",
+            "color": "blue"
+        },
+        {
+            "type": "list",
+            "value": null,
+            "listValue": [
+                {
+                    "content": "Item 1",
+                    "link": "/transfers/1",
+                    "background": "red"
+                },
+                {
+                    "content": "Item 2",
+                    "link": null
+                },
+                {
+                    "content": "Item 3",
+                    "link": "/transfers/3"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "value": "Tabla de prueba",
+            "fieldOptions": {
+                "fontSize": 20.0
+            }
+        },
+        {
+            "type": "grid",
+            "value": null,
+            "gridSplitChar": "|",
+            "gridColumns": [
+                {
+                    "name": "Header 1"
+                },
+                {
+                    "name": "Header 2"
+                },
+                {
+                    "name": "Header 3"
+                }
+            ],
+            "gridValues": [
+                {
+                    "content": "Row 1,1|Row 1,2|Row 1,3",
+                    "link": null
+                },
+                {
+                    "content": "Row 2,1|Row 2,2|Row 2,3",
+                    "link": null
+                },
+                {
+                    "content": "Row 3,1|Row 3,2|Row 3,3",
+                    "link": null
+                },
+                {
+                    "content": "Row 4,1|Row 4,2|Row 4,3",
+                    "link": null
+                }
+            ]
+        }
+    ]
+}

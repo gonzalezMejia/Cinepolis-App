@@ -1,0 +1,131 @@
+[
+    {
+        "title": "Traslados",
+        "action": {
+            "icon": "59061",
+            "route": "/transfer"
+        },
+        "fields": [
+            {
+                "type": "text",
+                "value": "50",
+                "fieldOptions": {
+                    "align": "center",
+                    "fontSize": 50,
+                    "color": "#0797E9"
+                }
+            },
+            {
+                "type": "text",
+                "value": "Traslados pendientes",
+                "fieldOptions": {
+                    "align": "center",
+                    "fontSize": 12
+                }
+            },
+            {
+                "type": "text",
+                "value": "Completados: 10",
+                "fieldOptions": {
+                    "align": "center",
+                    "fontSize": 10
+                }
+            }
+        ]
+    },
+    {
+        "title": "Producción",
+        "action": null,
+        "fields": [
+            {
+                "type": "text",
+                "value": "40",
+                "fieldOptions": {
+                    "align": "center",
+                    "fontSize": 50,
+                    "color": "#abcdef"
+                }
+            },
+            {
+                "type": "text",
+                "value": "Producciones pendientes de validar",
+                "fieldOptions": {
+                    "align": "center",
+                    "fontSize": 12
+                }
+            },
+            {
+                "type": "text",
+                "value": "Validadas: 19",
+                "fieldOptions": {
+                    "align": "center",
+                    "fontSize": 10
+                }
+            }
+        ]
+    },
+    {
+        "title": "Pedidos",
+        "action": null,
+        "fields": [
+            {
+                "type": "text",
+                "value": "20",
+                "fieldOptions": {
+                    "align": "center",
+                    "fontSize": 50,
+                    "color": "#d4c43b"
+                }
+            },
+            {
+                "type": "text",
+                "value": "Pedidos pendientes de entregar",
+                "fieldOptions": {
+                    "align": "center",
+                    "fontSize": 12
+                }
+            },
+            {
+                "type": "text",
+                "value": "Entregados: 5",
+                "fieldOptions": {
+                    "align": "center",
+                    "fontSize": 10
+                }
+            }
+        ]
+    },
+    {
+        "title": "Incidencias",
+        "action": {
+            "route": "/incidences"
+        },
+        "fields": [
+            {
+                "type": "text",
+                "value": "20",
+                "fieldOptions": {
+                    "align": "center",
+                    "fontSize": 50,
+                    "color": "#ABADF8"
+                }
+            },
+            {
+                "type": "text",
+                "value": "Incidencias pendientes",
+                "fieldOptions": {
+                    "align": "center",
+                    "fontSize": 12
+                }
+            },
+            {
+                "type": "text",
+                "value": "Vistas: 20",
+                "fieldOptions": {
+                    "align": "center",
+                    "fontSize": 10
+                }
+            }
+        ]
+    }
+]
