@@ -1,5 +1,5 @@
 //PRODUCTIVO
-class Environments {
+class EnvironmentsProd{
   static const String SSO_URL = 'https://corporativo.esperanza.mx/SSOCore';
   static const String API_URL =
       'https://corporativo.esperanza.mx/quizzerservice/api/';
@@ -23,7 +23,7 @@ class Environments {
 }
 
 //DESARROLLO
-class EnvironmentsDesa {
+class Environments {
   static const String SSO_URL = 'http://201.151.139.54/SSOCore';
   static const String API_URL = 'http://201.151.139.54/quizzerservice/api/';
   static const String IMAGES_URL =

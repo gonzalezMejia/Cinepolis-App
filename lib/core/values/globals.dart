@@ -10,7 +10,7 @@ class Globals {
   static const int ID_MANAGER = 2;
   static const String CHANNEL_SINGLE = 'single';
   static const String CHANNEL_PICTURE = 'picture';
-  static const int ID_MENU_APP_PROD = 50; //50 PROD ---- 51 DESA
+  static const int ID_MENU_APP_PROD = 51; //50 PROD ---- 51 DESA
   static const int CORPORATIVO_BRANCH = 9999;
   static const String PDF_URL = 'https://corporativo.esperanza.mx/tagcode/';
 }
