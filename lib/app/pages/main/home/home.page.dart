@@ -11,6 +11,7 @@ class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    print('wr00ossssssssss');
     return Scaffold(
       body: WillPopScope(
         onWillPop: () => MsgUtils.exit(
