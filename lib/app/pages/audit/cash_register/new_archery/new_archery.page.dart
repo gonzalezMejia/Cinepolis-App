@@ -20,6 +20,7 @@ class NewArcheryPage extends GetView<NewArcheryController> {
                 onPressed: () => controller.next(),
                 icon: Icon(
                   Icons.keyboard_arrow_right_outlined,
+                  color: Colors.amber,
                   size: 35,
                 ))
           ],
