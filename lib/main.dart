@@ -12,7 +12,7 @@ void main() {
   runApp(const MyApp());
 }
 
-//richard es hombre
+//macias es mi chavo
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
