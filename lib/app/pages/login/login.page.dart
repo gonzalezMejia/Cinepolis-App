@@ -11,8 +11,7 @@ class LoginPage extends GetView<LoginController> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(children: <Widget>[
-            Center(child: Image.asset('assets/images/logo_esp.jpeg'))
-                .paddingAll(40),
+            Center(child: Image.asset('cinepolis.png')).paddingAll(40),
             _user(controller.username.value, context),
             _password(controller.password.value, context)
                 .paddingOnly(top: 16, bottom: 16),
@@ -28,7 +27,7 @@ class LoginPage extends GetView<LoginController> {
     return Center(
         child: TextButton(
       child: Text(
-        "Olvidaste tu contraseña?",
+        "Olvidaste la contraseña?",
         style: Theme.of(context).textTheme.bodyText1,
       ),
       onPressed: () {
