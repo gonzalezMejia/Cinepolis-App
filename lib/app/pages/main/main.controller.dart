@@ -1,4 +1,4 @@
-import 'package:Cinepolis/app/utils/msg.utils.dart';
+
 import 'package:Cinepolis/app/utils/storage.utils.dart';
 import 'package:Cinepolis/app/widgets/menu/audit/menu_audit.page.dart';
 import 'package:Cinepolis/core/common/base_controller.dart';
@@ -46,7 +46,6 @@ class MainController extends BaseController {
     var employee =
         await _employeeService.getProfile(int.tryParse(userV.value.code) ?? 0);
     profile.value = employee;
-    await _accessMenu(employee.first.idEmpleado);
     loading.value = false;
   }
 
@@ -55,57 +54,6 @@ class MainController extends BaseController {
       zoomDrawerController().close!.call();
     } else {
       zoomDrawerController().toggle!.call();
-    }
-  }
-
-  _accessMenu(int idEmployee) async {
-    loading.value = true;
-    menuAccess.value = await _menuService.accessMenu(idEmployee);
-    loading.value = false;
-
-    List itemsMenu = [];
-
-    for (var element in menuAccess) {
-      itemsMenu.add(element.id);
-    }
-
-    loading.value = true;
-    if (itemsMenu.contains(Globals.ID_MENU_APP_PROD)) {
-      loading.value = true;
-      await _menuService
-          .generateMenu(idEmployee)
-          .onError((error, stackTrace) => SnackUtils.error(
-              'Error: $error........ Stack: $stackTrace.............',
-              'GerateMenu'))
-          .then((value) => _validatorMenu(value));
-      loading.value = false;
-    } else {
-      singOut();
-      SnackUtils.error("¡NO TIENES ACCESO A LA APLICACION!", "Advertencia");
-    }
-
-    loading.value = false;
-  }
-
-  _validatorMenu(Menu menu) {
-    for (var element in menu.grantAccessRoles.first.role.roleMenuItems) {
-      if (element.menuItem.name == 'Auditoria') {
-        menuItems.add(MenuItemMod(
-            Icon(
-              IconData(int.parse(element.menuItem.icon),
-                  fontFamily: 'MaterialIcons'),
-            ),
-            element.menuItem.name,
-            () => {Get.to(() => MenuAuditPage(element.menuItem.menuItems))}));
-      } else {
-        menuItems.add(MenuItemMod(
-            Icon(
-              IconData(int.parse(element.menuItem.icon),
-                  fontFamily: 'MaterialIcons'),
-            ),
-            element.menuItem.name,
-            () => {Get.toNamed(element.menuItem.url)}));
-      }
     }
   }
 

@@ -19,14 +19,12 @@ class ProfilePage extends GetView<ProfileController> {
                   child: Center(
                     child: Column(
                       children: <Widget>[
-                        _imageContain()
+                        /*_imageContain()
                             .paddingOnly(bottom: 30)
-                            .paddingOnly(top: 20),
+                            .paddingOnly(top: 20),*/
                         _textPain(context,
                                 controller.profile.first.nombreCompleto)
-                            .paddingOnly(bottom: 15),
-                        _textPain(context, controller.profile.first.noEmpleado)
-                            .paddingOnly(bottom: 15),
+                            .paddingOnly(bottom: 15,top: 15),
                         _textPain(
                                 context,
                                 controller.profile.first.telefono != 0
