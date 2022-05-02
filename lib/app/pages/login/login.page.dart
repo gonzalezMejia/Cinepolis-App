@@ -11,7 +11,8 @@ class LoginPage extends GetView<LoginController> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(children: <Widget>[
-            Center(child: Image.asset('cinepolis.png')).paddingAll(40),
+            Center(child: Image.asset('assets/images/cinepolis.png'))
+                .paddingAll(40),
             _user(controller.username.value, context),
             _password(controller.password.value, context)
                 .paddingOnly(top: 16, bottom: 16),
@@ -27,7 +28,7 @@ class LoginPage extends GetView<LoginController> {
     return Center(
         child: TextButton(
       child: Text(
-        "Olvidaste la contraseña?",
+        "Olvidaste tu contraseña?",
         style: Theme.of(context).textTheme.bodyText1,
       ),
       onPressed: () {
@@ -68,7 +69,7 @@ class LoginPage extends GetView<LoginController> {
         child: CustomLoadingButton(
             btnController: controller.rondButton.value,
             text: '${controller.loginText}',
-            color: Colors.black,
+            color: Colors.blue,
             onPressed: () => controller.startTime()),
       );
     });
