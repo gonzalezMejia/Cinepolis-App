@@ -26,7 +26,7 @@ class RecoveryPasswordPage extends GetView<RecoveryPasswordController> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Image.asset(
-              'assets/images/restore-pass.jpeg',
+              'assets/images/cinepolis.png',
               height: 230,
             ),
             Text("Ingresa tu correo electrónico",
