@@ -14,8 +14,7 @@ class SplashPage extends GetView<SplashController> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Image.asset('assets/images/logo_esp_small.jpeg')
-                  .paddingOnly(top: 20),
+              Image.asset('assets/images/cinepolis.png').paddingOnly(top: 20),
               _animatedText(context).paddingOnly(top: 35)
             ],
           ),
