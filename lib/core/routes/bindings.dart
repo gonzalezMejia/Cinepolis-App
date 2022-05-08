@@ -20,9 +20,8 @@ import 'package:Cinepolis/data/services/branch/branch.contract.dart';
 import 'package:Cinepolis/data/services/employees/employees.contract.dart';
 import 'package:Cinepolis/data/services/filemanager/file_manager.contract.dart';
 import 'package:Cinepolis/data/services/menu/menu.api.service.dart';
-import 'package:Cinepolis/data/services/news/news.api.service.dart';
+import 'package:Cinepolis/data/services/movies/movies.api.service.dart';
 import 'package:Cinepolis/data/services/quizzer/quizzers.api.service.dart';
-import 'package:Cinepolis/data/services/summary/summary.api.service.dart';
 import 'package:Cinepolis/data/services/users/users.contract.dart';
 import 'package:get/get.dart';
 
@@ -58,8 +57,7 @@ class MainBinding implements Bindings {
   void dependencies() {
     Get.lazyPut(
         () => MainController(authService, employeeService, MenuApiService()));
-    Get.lazyPut(() => HomeController(authService, employeeService,
-        SummaryApiService(), NewsApiService(), QuizzersService()));
+    Get.lazyPut(() => HomeController(authService,MoviesApiService()));
   }
 }
 

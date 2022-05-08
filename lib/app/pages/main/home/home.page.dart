@@ -11,8 +11,9 @@ class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    print('wr00ossssssssss');
     return Scaffold(
+      bottomSheet: Container(height: MediaQuery.of(context).size.height*.2,
+          color: Colors.white38),
       body: WillPopScope(
         onWillPop: () => MsgUtils.exit(
             context,
@@ -26,9 +27,7 @@ class HomePage extends GetView<HomeController> {
                     physics: const BouncingScrollPhysics(),
                     shrinkWrap: true,
                     children: [
-                        controller.news.length > 0
-                            ? _listNewsWidget(context)
-                            : Container(),
+                        _listNewsWidget(context),
                         _listBranchesWidget(context).paddingOnly(bottom: 10)
                       ]);
           }),
@@ -53,10 +52,10 @@ class HomePage extends GetView<HomeController> {
               scrollDirection: Axis.vertical,
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemCount: controller.news.length,
+              itemCount: controller.movies.length,
               clipBehavior: Clip.antiAlias,
               itemBuilder: (_, i) {
-                return NewsItem(controller.news[i]);
+                return NewsItem(controller.movies[i]);
               }),
         )
       ],
