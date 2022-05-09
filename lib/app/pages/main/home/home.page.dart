@@ -12,7 +12,8 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomSheet: Container(height: MediaQuery.of(context).size.height*.2,
+      bottomSheet: Container(
+          height: MediaQuery.of(context).size.height * .2,
           color: Colors.white38),
       body: WillPopScope(
         onWillPop: () => MsgUtils.exit(
