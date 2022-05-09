@@ -5,18 +5,21 @@ import 'package:Cinepolis/data/models/entities/employees/employee_detail.model.d
 import 'package:Cinepolis/data/models/entities/employees/user.model.dart';
 import 'package:Cinepolis/data/models/entities/movies/movies.model.dart';
 import 'package:Cinepolis/data/models/entities/news/news.model.dart';
+import 'package:Cinepolis/data/models/entities/promotions/promotions.model.dart';
 import 'package:Cinepolis/data/models/entities/quizzer/quizz_branch_visited.model.dart';
 import 'package:Cinepolis/data/services/auth/auth.contract.dart';
 import 'package:Cinepolis/data/services/movies/movies.contract.dart';
+import 'package:Cinepolis/data/services/promotions/promotions.contract.dart';
 import 'package:intl/intl.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   late final IAuthService _service;
   late final IMoviesService _moviesService;
+  late final IPromotionsService _promotionsService;
 
   var user = User.fromVoid().obs;
-  var movies= <MoviesModel>[].obs;
+  var movies = <MoviesModel>[].obs;
   var profile = <EmployeeDetail>[].obs;
   var genero = ''.obs;
   var puesto = ''.obs;
@@ -28,8 +31,10 @@ class HomeController extends GetxController {
   int selectedBranchId = 0;
   var loading = false.obs;
   var summaryLoading = false.obs;
+  var promotions = <PromotionsModel>[].obs;
 
-  HomeController(this._service,this._moviesService);
+  HomeController(this._service, this._moviesService,
+      this._promotionsService); //agragarlo siemppre con una coma
 
   @override
   void onInit() async {
@@ -45,6 +50,7 @@ class HomeController extends GetxController {
       user.value = existingUser;
       //Noticias
       movies.value = await _moviesService.getMovies();
+      promotions.value = await _promotionsService.getPromotions();
     } else {
       Get.offAllNamed(Routes.LOGIN);
     }
