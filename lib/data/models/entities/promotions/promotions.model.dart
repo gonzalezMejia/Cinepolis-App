@@ -5,7 +5,7 @@ class PromotionsModel {
   String? categoria;
   int? idCategoria;
   String? photo;
-  int? precioV;
+  double? precioV;
 
   PromotionsModel(
       {this.id,
