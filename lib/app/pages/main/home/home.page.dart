@@ -54,7 +54,7 @@ class HomePage extends GetView<HomeController> {
         Padding(
           padding: const EdgeInsets.only(left: 22, top: 10, bottom: 10),
           child: Text(
-            "Noticias",
+            "Peliculas",
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
