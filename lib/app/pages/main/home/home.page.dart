@@ -6,6 +6,7 @@ import 'package:Cinepolis/app/widgets/progress/progress_liner.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
@@ -28,6 +29,15 @@ class HomePage extends GetView<HomeController> {
                     physics: const BouncingScrollPhysics(),
                     shrinkWrap: true,
                     children: [
+                        //carrusel promociones
+                        CarouselSlider(
+                          options: CarouselOptions(height: 400.0),
+                          items: controller.promotions.map((i) {
+                            return Container(
+                              child: uploadImage(i.photo!),
+                            );
+                          }).toList(),
+                        ),
                         _listNewsWidget(context),
                         _listBranchesWidget(context).paddingOnly(bottom: 10)
                       ]);
@@ -108,5 +118,10 @@ class HomePage extends GetView<HomeController> {
                     .paddingOnly(top: 13, bottom: 18)
           ],
         ));
+  }
+
+  //carrusel
+  Widget uploadImage(String i) {
+    return Image.network(i);
   }
 }
