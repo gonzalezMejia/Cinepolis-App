@@ -31,11 +31,29 @@ class HomePage extends GetView<HomeController> {
                     children: [
                         //carrusel promociones
                         CarouselSlider(
-                          options: CarouselOptions(height: 400.0),
+                          options: CarouselOptions(
+                            height: 280.0,
+                            disableCenter: true,
+                            autoPlay: true,
+                            viewportFraction: 0.9,
+                            aspectRatio: 2.0,
+                            enlargeCenterPage: false,
+                            scrollDirection: Axis.horizontal,
+                            autoPlayCurve: Curves.fastLinearToSlowEaseIn,
+                            enlargeStrategy: CenterPageEnlargeStrategy.scale,
+                          ),
                           items: controller.promotions.map((i) {
                             return Container(
-                              child: uploadImage(i.photo!),
-                            );
+                                child: uploadImage(i.photo!),
+                                height: 200,
+                                margin: EdgeInsets.symmetric(
+                                    vertical: 7.0, horizontal: 3.0),
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.rectangle,
+                                    color: (Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? Colors.purple
+                                        : Colors.brown[50])));
                           }).toList(),
                         ),
                         _listNewsWidget(context),
@@ -123,5 +141,11 @@ class HomePage extends GetView<HomeController> {
   //carrusel
   Widget uploadImage(String i) {
     return Image.network(i);
+    itemCount:
+    15;
+    itemBuilder:
+    (BuildContext context, int itemIndex, int pageViewIndex) => Container(
+          child: Text(itemIndex.toString()),
+        );
   }
 }

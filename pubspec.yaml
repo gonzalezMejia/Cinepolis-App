@@ -59,6 +59,7 @@ dependencies:
   syncfusion_flutter_datagrid: ^19.4.41
   dio: ^4.0.4
   carousel_slider: ^4.1.1
+  
 
 dev_dependencies:
   flutter_test:
