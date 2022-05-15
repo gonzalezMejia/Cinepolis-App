@@ -10,7 +10,7 @@ class PromotionsApiService extends BaseService implements IPromotionsService {
   @override
   Future<List<PromotionsModel>> getPromotions() async {
     var userJson = await provider.request<PromotionsModel>(RequestMethod.get,
-        "${_recruitmentUrl}api/Cinepolis/promotions", //Aplicacion de postman
+        "${_recruitmentUrl}api/Cinepolis/promotions", //Aplicacion de postman de ricardo
         useDefaultUrl: false);
     return List<PromotionsModel>.from(
         userJson.map((x) => PromotionsModel.fromJson(x)));
