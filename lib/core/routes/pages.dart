@@ -4,11 +4,11 @@ import 'package:Cinepolis/app/pages/audit/rotisserie_inventory/inventory_detail/
 import 'package:Cinepolis/app/pages/audit/rotisserie_inventory/inventory_list/rotisserie_inventory.page.dart';
 import 'package:Cinepolis/app/pages/audit/rotisserie_inventory/inventory_new/rotisserie_inventory_new.page.dart';
 import 'package:Cinepolis/app/pages/login/login.page.dart';
+import 'package:Cinepolis/app/pages/main/main.page.dart';
 import 'package:Cinepolis/app/pages/profile/profile.page.dart';
 import 'package:Cinepolis/app/pages/quizzer/availables/quizz/quizz_answers.page.dart';
 import 'package:Cinepolis/app/pages/quizzer/quizzer.page.dart';
 import 'package:Cinepolis/app/pages/splash/splash.page.dart';
-import 'package:Cinepolis/app/widgets/menu/menu_zoom_drawer.widget.dart';
 import 'package:Cinepolis/core/routes/bindings.dart';
 import 'package:Cinepolis/data/services/auth/auth.api.service.dart';
 import 'package:Cinepolis/data/services/branch/branch.api.service.dart';
@@ -29,19 +29,19 @@ abstract class Pages {
   static final pages = [
     GetPage(
         name: Routes.SPLASH,
-        page: () => SplashPage(),
+        page: () => const SplashPage(),
         binding: SplashBinding(authService)),
     GetPage(
         name: Routes.LOGIN,
-        page: () => LoginPage(),
+        page: () => const LoginPage(),
         binding: LoginBinding(userService, authService)),
     GetPage(
         name: Routes.MAIN,
-        page: () => MenuZoomDrawer(),
+        page: () => const MainPage(),
         binding: MainBinding(authService, employeeService)),
     GetPage(
         name: Routes.PROFILE,
-        page: () => ProfilePage(),
+        page: () => const ProfilePage(),
         binding: ProfileBinding(authService, employeeService)),
     GetPage(
         name: Routes.CASH_REGISTER,
@@ -61,7 +61,7 @@ abstract class Pages {
         binding: RotisserieInventoryDetailBinding()),
     GetPage(
         name: Routes.ROTISSERIE_INVENTORY_NEW,
-        page: () => RotisserieInventoryNewPage(),
+        page: () => const RotisserieInventoryNewPage(),
         binding: RotisserieInventoryNewBinding(fileManagerService)),
     GetPage(
         name: Routes.QUIZZER,

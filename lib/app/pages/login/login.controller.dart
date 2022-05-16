@@ -27,9 +27,9 @@ class LoginController extends GetxController {
 
   singIn() async {
     var user = await _service.singIn(username.value.text, password.value.text);
-    if (user == null)
+    if (user == null) {
       return rondButton.value.stop();
-    else {
+    } else {
       rondButton.value.success();
       return Timer(duration, () => Get.offAllNamed(Routes.MAIN));
     }

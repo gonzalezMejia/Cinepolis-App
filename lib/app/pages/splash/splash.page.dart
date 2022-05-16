@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'splash.controller.dart';
 
 class SplashPage extends GetView<SplashController> {
+  const SplashPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +16,7 @@ class SplashPage extends GetView<SplashController> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Image.asset('assets/images/cinepolis.png').paddingOnly(top: 20),
+              Image.asset('assets/images/cinepolis.png'),
               _animatedText(context).paddingOnly(top: 35)
             ],
           ),
@@ -26,10 +28,8 @@ class SplashPage extends GetView<SplashController> {
   Widget _animatedText(BuildContext context) {
     return Obx(() {
       return AnimatedOpacity(
-        // If the widget is visible, animate to 0.0 (invisible).
-        // If the widget is hidden, animate to 1.0 (fully visible).
         opacity: controller.fadeText.value ? 1.0 : 0.0,
-        duration: Duration(seconds: 2),
+        duration: const Duration(seconds: 2),
         // The green box must be a child of the AnimatedOpacity widget.
         child: Text(
           '${controller.nameCorporation}',

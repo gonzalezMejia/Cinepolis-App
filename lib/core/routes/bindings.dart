@@ -19,7 +19,6 @@ import 'package:Cinepolis/data/services/branch/branch.api.service.dart';
 import 'package:Cinepolis/data/services/branch/branch.contract.dart';
 import 'package:Cinepolis/data/services/employees/employees.contract.dart';
 import 'package:Cinepolis/data/services/filemanager/file_manager.contract.dart';
-import 'package:Cinepolis/data/services/menu/menu.api.service.dart';
 import 'package:Cinepolis/data/services/movies/movies.api.service.dart';
 import 'package:Cinepolis/data/services/promotions/promotions.api.service.dart';
 import 'package:Cinepolis/data/services/quizzer/quizzers.api.service.dart';
@@ -57,7 +56,7 @@ class MainBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut(
-        () => MainController(authService, employeeService, MenuApiService()));
+        () => MainController(authService, employeeService));
     Get.lazyPut(() => HomeController(
         authService, MoviesApiService(), PromotionsApiService()));
   }

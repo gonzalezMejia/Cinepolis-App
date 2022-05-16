@@ -1,31 +1,27 @@
-
-import 'package:Cinepolis/app/utils/storage.utils.dart';
-import 'package:Cinepolis/app/widgets/menu/audit/menu_audit.page.dart';
+import 'package:Cinepolis/app/pages/main/home/home.page.dart';
+import 'package:Cinepolis/app/utils/msg.utils.dart';
+import 'package:Cinepolis/app/utils/sign_out.utils.dart';
 import 'package:Cinepolis/core/common/base_controller.dart';
 import 'package:Cinepolis/core/routes/pages.dart';
 import 'package:Cinepolis/core/values/enviroments.dart';
-import 'package:Cinepolis/core/values/globals.dart';
+import 'package:Cinepolis/data/models/core/tab_item.dart';
 import 'package:Cinepolis/data/models/entities/dynamic/dynamic_response.model.dart';
 import 'package:Cinepolis/data/models/entities/employees/employee_detail.model.dart';
-import 'package:Cinepolis/data/models/entities/employees/user.model.dart';
 import 'package:Cinepolis/data/models/entities/menu/menu.model.dart';
 import 'package:Cinepolis/data/models/entities/menu/menu_access.model.dart';
 import 'package:Cinepolis/data/models/entities/menu/menu_item.model.dart';
 import 'package:Cinepolis/data/services/auth/auth.contract.dart';
 import 'package:Cinepolis/data/services/employees/employees.contract.dart';
-import 'package:Cinepolis/data/services/menu/menu.contract.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class MainController extends BaseController {
   late final IAuthService _service;
   late final IEmployeeService _employeeService;
-  late final IMenuService _menuService;
 
   static const String imagesUrl = Environments.IMAGES_URL;
   var profile = <EmployeeDetail>[].obs;
-  Rx<User> userV = User.fromVoid().obs;
   var response = DynamicResponse.fromVoid().obs;
   var menu = <Menu>[].obs;
 
@@ -33,37 +29,28 @@ class MainController extends BaseController {
 
   final zoomDrawerController = ZoomDrawerController().obs;
 
+  List<TabItem> navigationItems = [];
   var menuItems = <MenuItemMod>[];
   var menuAccess = <AccessMenu>[].obs;
 
-  MainController(this._service, this._employeeService, this._menuService);
+  MainController(this._service, this._employeeService);
 
   @override
   void onInit() async {
     super.onInit();
-    var existingUser = await _service.checkUser();
-    userV.value = existingUser!;
-    var employee =
-        await _employeeService.getProfile(int.tryParse(userV.value.code) ?? 0);
-    profile.value = employee;
+    navigationItems = [
+      TabItem(FontAwesomeIcons.home, const HomePage(), 'Inicio'),//todo ingresar las nuevas pages aqui
+    ];
+    await _service.checkUser().then((existingUser) async {
+    profile.value = await _employeeService.getProfile(int.tryParse(existingUser!.code) ?? 0);
     loading.value = false;
+    }).onError((error, stackTrace) async {
+      SignOut();
+      return SnackUtils.error(error.toString(), "Error");
+    });
+
   }
 
-  actionDrawer() {
-    if (zoomDrawerController().isOpen!.call()) {
-      zoomDrawerController().close!.call();
-    } else {
-      zoomDrawerController().toggle!.call();
-    }
-  }
+  goToProfile() => Get.toNamed(Routes.PROFILE);
 
-  goToProfile() {
-    Get.toNamed(Routes.PROFILE);
-  }
-
-  singOut() {
-    Get.offNamedUntil(Routes.LOGIN, ModalRoute.withName(Routes.LOGIN));
-    LocalStorageUtils.setStringKey(Globals.CURRENT_USER_KEY, "");
-    LocalStorageUtils.setStringKey(Globals.TOKEN_KEY, "");
-  }
 }

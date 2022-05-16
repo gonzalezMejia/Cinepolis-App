@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class EvidenceImage extends StatelessWidget {
-  EvidenceImage({required this.item, required this.onPressed});
+   const EvidenceImage({Key? key, required this.item, required this.onPressed}) : super(key: key);
 
   final GestureTapCallback onPressed;
   final String item;
@@ -10,7 +10,7 @@ class EvidenceImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPressed,
-      child: new Card(
+      child: Card(
           elevation: 2,
           child: Column(
             children: <Widget>[

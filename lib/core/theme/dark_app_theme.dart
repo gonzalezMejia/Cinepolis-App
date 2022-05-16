@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 final ThemeData darkAppTheme = ThemeData(
   // Define the default brightness and colors.
   brightness: Brightness.dark,
-  primaryColor: Colors.blue,
-  primaryColorLight: Colors.blueAccent,
+  primaryColor: const Color.fromRGBO(32, 54, 107, 1),
+  primaryColorLight: const Color.fromRGBO(79, 96, 137, 1),
   primaryColorDark: Colors.blueGrey,
-  highlightColor: Colors.white70,
-  indicatorColor: Colors.blue,
-  hoverColor: Colors.white,
-  scaffoldBackgroundColor: Colors.blue,
+  highlightColor: const Color.fromRGBO(254, 254, 255,1),
+  indicatorColor: const Color.fromRGBO(32, 54, 107, 1),
+  hoverColor: const Color.fromRGBO(254, 254, 255,1),
+  scaffoldBackgroundColor: const Color.fromRGBO(32, 54, 107, 1),
   colorScheme: const ColorScheme.dark(
       secondary: Colors.blueAccent //this is physics color
       ),
   iconTheme: const IconThemeData(
-    color: Colors.white70,
+    color: Color.fromRGBO(254, 254, 255,1),
     size: 37,
   ),
 
