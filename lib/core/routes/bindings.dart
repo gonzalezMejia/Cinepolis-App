@@ -9,6 +9,7 @@ import 'package:Cinepolis/data/models/entities/movies/movies.model.dart';
 import 'package:Cinepolis/data/services/auth/auth.contract.dart';
 import 'package:Cinepolis/data/services/employees/user.contract.dart';
 import 'package:Cinepolis/data/services/movies/movies.api.service.dart';
+import 'package:Cinepolis/data/services/products/products.api.service.dart';
 import 'package:Cinepolis/data/services/promotions/promotions.api.service.dart';
 import 'package:get/get.dart';
 
@@ -47,6 +48,15 @@ class MainBinding implements Bindings {
         () => ProfileController(authService, employeeService));
     Get.lazyPut<BillBoardController>(
         () => BillBoardController(MoviesApiService()));
-    Get.lazyPut<CandyStoreController>(() => CandyStoreController());
+    //Get.lazyPut<CandyStoreController>(() => CandyStoreController());
+
+    Get.lazyPut(() => MainController(authService, employeeService));
+    Get.lazyPut(() => HomeController(
+        authService, MoviesApiService(), PromotionsApiService()));
+    Get.lazyPut<ProfileController>(
+        () => ProfileController(authService, employeeService));
+    //Get.lazyPut<BillBoardController>(() => BillBoardController());
+    Get.lazyPut<CandyStoreController>(
+        () => CandyStoreController(ProductsApiService()));
   }
 }

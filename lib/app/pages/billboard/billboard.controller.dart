@@ -8,7 +8,7 @@ class BillBoardController extends GetxController {
 
   late final IMoviesService _moviesService;
   var movies = <MoviesModel>[].obs;
-
+//ricardo
   @override
   void onInit() async {
     super.onInit();

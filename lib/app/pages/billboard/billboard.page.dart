@@ -13,6 +13,7 @@ class BillboardPage extends GetView<BillBoardController> {
   const BillboardPage({Key? key}) : super(key: key);
 
   @override
+  //
   Widget build(BuildContext context) {
     return new MaterialApp(
         title: ' Cartelera',

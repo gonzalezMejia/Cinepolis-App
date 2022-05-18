@@ -10,6 +10,8 @@ class CandyStorePage extends GetView<CandyStoreController>{
   Widget build(BuildContext context) {
 return Scaffold(
   appBar: SimpleAppBar(title: "Dulcería"),
+
+  body: ListView(children: controller.products.map((element) => Text(element.producto!,style: TextStyle(color: Colors.white),)).toList()),
 );
   }
 
