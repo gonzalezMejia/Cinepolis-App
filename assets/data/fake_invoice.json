@@ -1,11 +1,122 @@
 [
   {
-    "rfc": "VITJ850904K38",
-    "razonSocial": "JULIO CESAR VIEYRA TENA",
-    "pais": "MEX",
-    "numRegIDTrib": null,
-    "email": "viey_te@yahoo.com.mx",
-    "desgloseIEPS": false,
-    "usoCFDI": 0
+    "id": 1,
+    "descripcion": "Palomitas Medianas de cuaquier tipo",
+    "producto": "Palomitas Medianas",
+    "precioV": 25.0,
+    "idCategoria": 4,
+    "photo": "https://static.cinepolis.com/img/promociones/1/2022224143650592.jpg"
+  },
+  {
+    "id": 2,
+    "descripcion": "Palomitas Grandes de cuaquier tipo",
+    "producto": "Palomitas Grades",
+    "precioV": 30.0,
+    "idCategoria": 4,
+    "photo": "http://www.glifo.mx/web/img/projects/project-2.jpg"
+  },
+  {
+    "id": 3,
+    "descripcion": "Palomitas Jumbo de cuaquier tipo",
+    "producto": "Palomitas Jumbo",
+    "precioV": 35.0,
+    "idCategoria": 4,
+    "photo": "https://assets.change.org/photos/8/ux/mo/BfuXmOYeLAcwSCr-1600x900-noPad.jpg?1424002853"
+  },
+  {
+    "id": 4,
+    "descripcion": "Panditas 125g",
+    "producto": "Panditas 125g",
+    "precioV": 23.0,
+    "idCategoria": 2,
+    "photo": "https://images.rappi.com.mx/products/978114258-1620015273626.png?d=200x200&?d=1920xundefined&e=webp"
+  },
+  {
+    "id": 5,
+    "descripcion": "Refresco mediano de cualquier sabor",
+    "producto": "Refresco Mediano",
+    "precioV": 20.0,
+    "idCategoria": 3,
+    "photo": "https://menuplatino.mx/wp-content/uploads/2021/01/refresco-chico.png"
+  },
+  {
+    "id": 6,
+    "descripcion": "Refrescos Grande de cualquier sabor",
+    "producto": "Refresco Grande",
+    "precioV": 25.0,
+    "idCategoria": 3,
+    "photo": "https://menuplatino.mx/wp-content/uploads/2021/01/refresco-mediano.png"
+  },
+  {
+    "id": 7,
+    "descripcion": "Refrescos Jumbo de cualquier sabor",
+    "producto": "Refresco Jumbo",
+    "precioV": 30.0,
+    "idCategoria": 3,
+    "photo": "https://menuplatino.mx/wp-content/uploads/2021/01/refresco-grande.png"
+  },
+  {
+    "id": 8,
+    "descripcion": "Con queso crema Philadelphia",
+    "producto": "Crepa Oreo",
+    "precioV": 59.99,
+    "idCategoria": 1,
+    "photo": "https://static.cinepolis.com/img/promociones/1/2022224143538531.jpg"
+  },
+  {
+    "id": 9,
+    "descripcion": "Palomitas de Mantequilla Medianas y refrescos medianos de cualquier sabor",
+    "producto": "combo1",
+    "precioV": 142.0,
+    "idCategoria": 5,
+    "photo": "https://www.mikiosko.mx/web/images/servicios-y-pagos/cinepolis/combo011.png"
+  },
+  {
+    "id": 10,
+    "descripcion": "Vaso Chico, Los Secretos de Dumbledore",
+    "producto": "Vaso Secretos DombleDore chico",
+    "precioV": 79.0,
+    "idCategoria": 6,
+    "photo": "https://static.cinepolis.com/img/promociones/1/202246173332440.jpg"
+  },
+  {
+    "id": 11,
+    "descripcion": "Vaso Grande, Los Secretos de Dumbledore",
+    "producto": "Vaso Secretos DombleDore Grande",
+    "precioV": 149.0,
+    "idCategoria": 6,
+    "photo": "https://static.cinepolis.com/img/promociones/1/202246173332440.jpg"
+  },
+  {
+    "id": 12,
+    "descripcion": "Palomitas Grandes y dos ICEE del sabor que tu gustes!",
+    "producto": "Combo Sonic",
+    "precioV": 130.0,
+    "idCategoria": 5,
+    "photo": "https://static.cinepolis.com/img/promociones/1/2022331113425136.jpg"
+  },
+  {
+    "id": 13,
+    "descripcion": "ICEE de Mango, disfrutalo por tiempo Limitado!",
+    "producto": "ICEE Mango",
+    "precioV": 35.0,
+    "idCategoria": 3,
+    "photo": "https://static.cinepolis.com/img/promociones/1/2022224143752137.jpg"
+  },
+  {
+    "id": 14,
+    "descripcion": "Disfruta de dos Topo Chico por tiempo Limitado!",
+    "producto": "2 TOPO Chico 600ml",
+    "precioV": 44.0,
+    "idCategoria": 5,
+    "photo": "https://static.cinepolis.com/img/promociones/1/202222414384742.jpg"
+  },
+  {
+    "id": 15,
+    "descripcion": "Compra 2 Productos x $30.00MX",
+    "producto": "2 gomitas x 30",
+    "precioV": 30.0,
+    "idCategoria": 5,
+    "photo": "https://cazaofertas.com.mx/wp-content/uploads/2018/10/promocion-cinepolis-dulcipolis.jpg"
   }
 ]
