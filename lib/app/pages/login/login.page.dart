@@ -1,4 +1,3 @@
-import 'package:Cinepolis/app/pages/login/widgets/recovery.page.dart';
 import 'package:Cinepolis/app/widgets/custom_button/custom_loading_button.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,40 +18,11 @@ class LoginPage extends GetView<LoginController> {
         _password(controller.password.value, context)
             .paddingOnly(top: 16, bottom: 16),
         _containButton(context).paddingOnly(top: 25),
-        _forgetPassword(context).paddingOnly(top: 30)
       ]).paddingOnly(top: 10, bottom: 50, left: 16, right: 16),
     );
   }
 
-  Widget _forgetPassword(BuildContext context) {
-    return Center(
-        child: TextButton(
-      child: Text(
-        "Olvidaste tu contraseña?",
-        style: Theme.of(context).textTheme.bodyText1,
-      ),
-      onPressed: () {
-        showModalBottomSheet(
-          context: context,
-          isScrollControlled: true,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              top: Radius.circular(40),
-            ),
-          ),
-          clipBehavior: Clip.antiAliasWithSaveLayer,
-          builder: (context) => SingleChildScrollView(
-            child: Container(
-              color: Theme.of(context).indicatorColor,
-              padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).viewInsets.bottom),
-              child: RecoveryPasswordPage(),
-            ),
-          ),
-        );
-      },
-    ));
-  }
+
 
   Widget _containButton(BuildContext context) {
     return Obx(() {

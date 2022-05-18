@@ -1,15 +1,14 @@
 import 'dart:convert';
-
 import 'package:Cinepolis/app/utils/msg.utils.dart';
 import 'package:Cinepolis/app/utils/storage.utils.dart';
 import 'package:Cinepolis/core/values/enviroments.dart';
 import 'package:Cinepolis/core/values/globals.dart';
-import 'package:Cinepolis/data/models/entities/employees/user.model.dart';
 import 'package:Cinepolis/data/models/entities/token/token_response.model.dart';
+import 'package:Cinepolis/data/models/entities/users/user.model.dart';
 import 'package:Cinepolis/data/models/enums/request_method.enum.dart';
 import 'package:Cinepolis/data/services/auth/auth.contract.dart';
+import 'package:Cinepolis/data/services/base.service.dart';
 
-import '../base.service.dart';
 
 class AuthApiService extends BaseService implements IAuthService {
   final String ssoUrl = Environments.SSO_URL;

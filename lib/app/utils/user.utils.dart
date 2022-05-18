@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:Cinepolis/app/utils/storage.utils.dart';
 import 'package:Cinepolis/core/values/globals.dart';
-import 'package:Cinepolis/data/models/entities/employees/user.model.dart';
+import 'package:Cinepolis/data/models/entities/users/user.model.dart';
 
 class UserUtils {
   static Future<User?> getCurrentUser() async {

@@ -1,7 +1,7 @@
-class EmployeeDetail {
+class UserDetail {
   int idEmpleado;
 
-  EmployeeDetail({
+  UserDetail({
     required this.idEmpleado,
     required this.noEmpleado,
     required this.nombres,
@@ -71,7 +71,7 @@ class EmployeeDetail {
   String sucursal;
   int telefono;
 
-  factory EmployeeDetail.fromJson(Map<String, dynamic> json) => EmployeeDetail(
+  factory UserDetail.fromJson(Map<String, dynamic> json) => UserDetail(
     idEmpleado: json["idEmpleado"],
     noEmpleado: json["noEmpleado"],
     nombres: json["nombres"],

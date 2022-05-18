@@ -19,15 +19,18 @@ class MainPage extends GetView<MainController> {
             children: controller.navigationItems.map((e) => e.page).toList(),
           )),
           bottomNavigationBar: Container(
-              height: 50,
+              height: 60,
               color: Theme.of(context).primaryColorLight,
               padding: const EdgeInsets.only(bottom: 5),
               child: TabBar(
                   indicatorColor: Theme.of(context).primaryColorDark,
                   tabs: controller.navigationItems
                       .map((e) => Tab(
-                      icon: Icon(
-                        e.icon,
+                      icon: Tooltip(
+                        message: e.label,
+                        child: Icon(
+                          e.icon,
+                        ),
                       )))
                       .toList()))),
     );

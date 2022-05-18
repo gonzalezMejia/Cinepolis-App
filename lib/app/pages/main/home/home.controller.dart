@@ -1,12 +1,8 @@
 import 'package:Cinepolis/core/routes/pages.dart';
-import 'package:Cinepolis/core/values/enviroments.dart';
-import 'package:Cinepolis/data/models/entities/dynamic/dynamic_summary.model.dart';
-import 'package:Cinepolis/data/models/entities/employees/employee_detail.model.dart';
-import 'package:Cinepolis/data/models/entities/employees/user.model.dart';
 import 'package:Cinepolis/data/models/entities/movies/movies.model.dart';
-import 'package:Cinepolis/data/models/entities/news/news.model.dart';
 import 'package:Cinepolis/data/models/entities/promotions/promotions.model.dart';
-import 'package:Cinepolis/data/models/entities/quizzer/quizz_branch_visited.model.dart';
+import 'package:Cinepolis/data/models/entities/users/user.model.dart';
+import 'package:Cinepolis/data/models/entities/users/user_detail.model.dart';
 import 'package:Cinepolis/data/services/auth/auth.contract.dart';
 import 'package:Cinepolis/data/services/movies/movies.contract.dart';
 import 'package:Cinepolis/data/services/promotions/promotions.contract.dart';
@@ -20,14 +16,8 @@ class HomeController extends GetxController {
 
   var user = User.fromVoid().obs;
   var movies = <MoviesModel>[].obs;
-  var profile = <EmployeeDetail>[].obs;
-  var genero = ''.obs;
-  var puesto = ''.obs;
-  var notification = '5'.obs;
-  var summary = <DynamicSummary>[].obs;
-  final String imagesUrl = Environments.IMAGES_URL;
-  var news = <NewsModel>[].obs;
-  var branchesVisited = <BranchesVisited>[].obs;
+  var profile = <UserDetail>[].obs;
+
   int selectedBranchId = 0;
   var loading = false.obs;
   var summaryLoading = false.obs;

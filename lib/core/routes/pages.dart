@@ -3,19 +3,15 @@ import 'package:Cinepolis/app/pages/main/main.page.dart';
 import 'package:Cinepolis/app/pages/splash/splash.page.dart';
 import 'package:Cinepolis/core/routes/bindings.dart';
 import 'package:Cinepolis/data/services/auth/auth.api.service.dart';
-import 'package:Cinepolis/data/services/branch/branch.api.service.dart';
-import 'package:Cinepolis/data/services/employees/employees.api.service.dart';
+import 'package:Cinepolis/data/services/employees/user.api.service.dart';
 import 'package:Cinepolis/data/services/filemanager/file_manager.api.service.dart';
-import 'package:Cinepolis/data/services/users/users.api.service.dart';
 import 'package:get/get.dart';
 
 part 'routes.dart';
 
 abstract class Pages {
   static final authService = AuthApiService();
-  static final userService = UserApiService();
-  static final branchService = BranchApiService();
-  static final employeeService = EmployeesApiService();
+  static final employeeService = UserApiService();
   static final fileManagerService = FileManagerApiService();
 
   static final pages = [
@@ -26,7 +22,7 @@ abstract class Pages {
     GetPage(
         name: Routes.LOGIN,
         page: () => const LoginPage(),
-        binding: LoginBinding(userService, authService,employeeService)),
+        binding: LoginBinding(authService)),
     GetPage(
         name: Routes.MAIN,
         page: () => const MainPage(),

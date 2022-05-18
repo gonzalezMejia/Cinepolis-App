@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:Cinepolis/app/utils/msg.utils.dart';
 import 'package:Cinepolis/app/utils/storage.utils.dart';
 import 'package:Cinepolis/core/routes/pages.dart';
-import 'package:Cinepolis/core/values/enviroments.dart';
 import 'package:Cinepolis/core/values/globals.dart';
 import 'package:Cinepolis/data/models/core/api_exception.model.dart';
 import 'package:Cinepolis/data/models/enums/request_method.enum.dart';
@@ -29,7 +28,7 @@ class ApiProvider {
     http.Response resp;
 
     final Uri url =
-        Uri.parse((useDefaultUrl ? Environments.API_URL : '') + endPoint);
+        Uri.parse(endPoint);
 
     final Map<String, String> headers = <String, String>{};
     headers.putIfAbsent(

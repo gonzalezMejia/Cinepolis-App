@@ -2,18 +2,18 @@ import 'package:Cinepolis/app/utils/storage.utils.dart';
 import 'package:Cinepolis/core/routes/pages.dart';
 import 'package:Cinepolis/core/values/enviroments.dart';
 import 'package:Cinepolis/core/values/globals.dart';
-import 'package:Cinepolis/data/models/entities/employees/employee_detail.model.dart';
-import 'package:Cinepolis/data/models/entities/employees/user.model.dart';
+import 'package:Cinepolis/data/models/entities/users/user.model.dart';
+import 'package:Cinepolis/data/models/entities/users/user_detail.model.dart';
 import 'package:Cinepolis/data/services/auth/auth.contract.dart';
-import 'package:Cinepolis/data/services/employees/employees.contract.dart';
+import 'package:Cinepolis/data/services/employees/user.contract.dart';
 import 'package:get/get.dart';
 
 class ProfileController extends GetxController {
   late final IAuthService _service;
-  late final IEmployeeService _employeeService;
+  late final IUserService _employeeService;
 
   var user = User.fromVoid().obs;
-  var profile = <EmployeeDetail>[].obs;
+  var profile = <UserDetail>[].obs;
   var loading = true.obs;
 
   final String imagesUrl = Environments.IMAGES_URL;
