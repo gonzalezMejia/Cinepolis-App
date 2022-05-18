@@ -1,6 +1,5 @@
 import 'package:Cinepolis/app/pages/login/login.page.dart';
 import 'package:Cinepolis/app/pages/main/main.page.dart';
-import 'package:Cinepolis/app/pages/profile/profile.page.dart';
 import 'package:Cinepolis/app/pages/splash/splash.page.dart';
 import 'package:Cinepolis/core/routes/bindings.dart';
 import 'package:Cinepolis/data/services/auth/auth.api.service.dart';
@@ -27,14 +26,10 @@ abstract class Pages {
     GetPage(
         name: Routes.LOGIN,
         page: () => const LoginPage(),
-        binding: LoginBinding(userService, authService)),
+        binding: LoginBinding(userService, authService,employeeService)),
     GetPage(
         name: Routes.MAIN,
         page: () => const MainPage(),
-        binding: MainBinding(authService, employeeService)),
-    GetPage(
-        name: Routes.PROFILE,
-        page: () => const ProfilePage(),
-        binding: ProfileBinding(authService, employeeService)),
+        binding: MainBinding(authService, employeeService))
   ];
 }
