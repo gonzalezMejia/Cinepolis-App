@@ -5,6 +5,7 @@ import 'package:Cinepolis/app/pages/main/home/home.controller.dart';
 import 'package:Cinepolis/app/pages/main/main.controller.dart';
 import 'package:Cinepolis/app/pages/profile/profile.controller.dart';
 import 'package:Cinepolis/app/pages/splash/splash.controller.dart';
+import 'package:Cinepolis/data/models/entities/movies/movies.model.dart';
 import 'package:Cinepolis/data/services/auth/auth.contract.dart';
 import 'package:Cinepolis/data/services/employees/user.contract.dart';
 import 'package:Cinepolis/data/services/movies/movies.api.service.dart';
@@ -28,7 +29,6 @@ class LoginBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut<LoginController>(() => LoginController(authService));
-
   }
 }
 
@@ -40,11 +40,13 @@ class MainBinding implements Bindings {
 
   @override
   void dependencies() {
-    Get.lazyPut(
-        () => MainController(authService, employeeService));
-    Get.lazyPut(() => HomeController(authService, MoviesApiService(), PromotionsApiService()));
-    Get.lazyPut<ProfileController>(() => ProfileController(authService,employeeService));
-    Get.lazyPut<BillBoardController>(() => BillBoardController());
+    Get.lazyPut(() => MainController(authService, employeeService));
+    Get.lazyPut(() => HomeController(
+        authService, MoviesApiService(), PromotionsApiService()));
+    Get.lazyPut<ProfileController>(
+        () => ProfileController(authService, employeeService));
+    Get.lazyPut<BillBoardController>(
+        () => BillBoardController(MoviesApiService()));
     Get.lazyPut<CandyStoreController>(() => CandyStoreController());
   }
 }

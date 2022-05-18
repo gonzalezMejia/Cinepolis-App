@@ -11,22 +11,19 @@ class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Obx(()=>controller.loading.value
+    return Obx(() => controller.loading.value
         ? ProgressPrimary()
-        :CustomScrollView(
-      shrinkWrap: true,
-        slivers: [//static widgets
-          _getPromotions(context),
-          SliverList(
-              delegate: SliverChildListDelegate([
-                _listNewsWidget(context),
-                ])
-          )
-        ])
-    );
+        : CustomScrollView(shrinkWrap: true, slivers: [
+            //static widgets
+            _getPromotions(context),
+            SliverList(
+                delegate: SliverChildListDelegate([
+              _listNewsWidget(context),
+            ]))
+          ]));
   }
 
-  Widget _getPromotions(BuildContext context){
+  Widget _getPromotions(BuildContext context) {
     return ExtendedSliverAppbar(
       isOpacityFadeWithTitle: false,
       background: Container(
@@ -34,7 +31,7 @@ class HomePage extends GetView<HomeController> {
         child: CarouselSlider(
           options: CarouselOptions(
             scrollPhysics: const BouncingScrollPhysics(),
-            height: MediaQuery.of(context).size.height*.33,
+            height: MediaQuery.of(context).size.height * .33,
             disableCenter: true,
             autoPlay: true,
             viewportFraction: 0.8,
@@ -45,7 +42,9 @@ class HomePage extends GetView<HomeController> {
             autoPlayCurve: Curves.easeOutQuart,
             enlargeStrategy: CenterPageEnlargeStrategy.scale,
           ),
-          items: controller.promotions.map((i) => uploadImage(i.photo!,context)).toList(),
+          items: controller.promotions
+              .map((i) => uploadImage(i.photo!, context))
+              .toList(),
         ),
       ),
     );
@@ -76,16 +75,15 @@ class HomePage extends GetView<HomeController> {
   }
 
   //carrusel
-  Widget uploadImage(String i,BuildContext context) {
+  Widget uploadImage(String i, BuildContext context) {
     return Card(
       color: Theme.of(context).primaryColor,
       borderOnForeground: false,
       child: Hero(
         tag: 'image$i',
         child: GestureDetector(
-            onTap: ()=>MsgOptions.customImage(
-                context, i),
-            child: Image.network(i,fit: BoxFit.fill)),
+            onTap: () => MsgOptions.customImage(context, i),
+            child: Image.network(i, fit: BoxFit.fill)),
       ),
       margin: const EdgeInsets.symmetric(vertical: 7.0, horizontal: 3.0),
     );
