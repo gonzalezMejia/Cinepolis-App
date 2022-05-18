@@ -23,13 +23,15 @@ class SplashBinding implements Bindings {
 class LoginBinding implements Bindings {
   final IUserService userService;
   final IAuthService authService;
+  final IEmployeeService employeeService;
 
-  LoginBinding(this.userService, this.authService);
+  LoginBinding(this.userService, this.authService,this.employeeService);
 
   @override
   void dependencies() {
     Get.lazyPut(() => RecoveryPasswordController(userService));
     Get.lazyPut<LoginController>(() => LoginController(authService));
+
   }
 }
 
@@ -45,18 +47,6 @@ class MainBinding implements Bindings {
         () => MainController(authService, employeeService));
     Get.lazyPut(() => HomeController(
         authService, MoviesApiService(), PromotionsApiService()));
-  }
-}
-
-class ProfileBinding implements Bindings {
-  final IAuthService authService;
-  final IEmployeeService employeeService;
-
-  ProfileBinding(this.authService, this.employeeService);
-
-  @override
-  void dependencies() {
-    Get.lazyPut<ProfileController>(
-        () => ProfileController(authService, employeeService));
+    Get.lazyPut<ProfileController>(() => ProfileController(authService,employeeService));
   }
 }
