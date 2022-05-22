@@ -1,3 +1,4 @@
+import 'package:cinepolis/app/pages/billboard/billboard.controller.dart';
 import 'package:cinepolis/app/pages/main/home/home.controller.dart';
 import 'package:cinepolis/app/pages/main/home/widgets/news_item.widget.dart';
 import 'package:cinepolis/app/utils/msg_options.utils.dart';
@@ -81,7 +82,10 @@ class HomePage extends GetView<HomeController> {
             itemCount: controller.movies.length,
             clipBehavior: Clip.antiAlias,
             itemBuilder: (_, i) {
-              return NewsItem(controller.movies[i]);
+              return NewsItem(
+                  controller.movies[i],
+                  () => Get.find<BillBoardController>()
+                      .goDetailMovie(controller.movies[i]));
             })
       ],
     );

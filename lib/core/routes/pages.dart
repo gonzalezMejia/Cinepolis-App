@@ -5,6 +5,7 @@ import 'package:cinepolis/core/routes/bindings.dart';
 import 'package:cinepolis/data/services/auth/auth.api.service.dart';
 import 'package:cinepolis/data/services/employees/user.api.service.dart';
 import 'package:cinepolis/data/services/filemanager/file_manager.api.service.dart';
+import 'package:cinepolis/data/services/movies/movies.api.service.dart';
 import 'package:get/get.dart';
 
 part 'routes.dart';
@@ -13,6 +14,7 @@ abstract class Pages {
   static final authService = AuthApiService();
   static final employeeService = UserApiService();
   static final fileManagerService = FileManagerApiService();
+  static final movieService = MoviesApiService();
 
   static final pages = [
     GetPage(

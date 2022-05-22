@@ -1,3 +1,5 @@
+import 'package:chewie/chewie.dart';
+import 'package:cinepolis/app/pages/billboard/detail/detail.page.dart';
 import 'package:cinepolis/core/routes/pages.dart';
 import 'package:cinepolis/data/models/entities/movies/movies.model.dart';
 import 'package:cinepolis/data/models/entities/promotions/promotions.model.dart';
@@ -6,8 +8,10 @@ import 'package:cinepolis/data/models/entities/users/user_detail.model.dart';
 import 'package:cinepolis/data/services/auth/auth.contract.dart';
 import 'package:cinepolis/data/services/movies/movies.contract.dart';
 import 'package:cinepolis/data/services/promotions/promotions.contract.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:get/get.dart';
+import 'package:video_player/video_player.dart';
 
 class HomeController extends GetxController {
   late final IAuthService _service;

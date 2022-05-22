@@ -1,24 +1,25 @@
-import 'package:cinepolis/core/values/enviroments.dart';
 import 'package:cinepolis/data/models/entities/movies/movies.model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class NewsItem extends StatelessWidget {
   final MoviesModel model;
+  final Function funtion;
 
-  const NewsItem(this.model, {Key? key}) : super(key: key);
+  const NewsItem(this.model, this.funtion, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+      padding: const EdgeInsets.only(left: 15, right: 15, bottom: 3),
       child: Card(
         color: Colors.blueGrey[600],
-        elevation: 2,
+        elevation: 2.5,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
         child: ListTile(
+          onTap: () => funtion(),
           subtitle: Row(children: [
             _imageContain(context, model.photo!),
             Expanded(
