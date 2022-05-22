@@ -1,12 +1,12 @@
 import 'package:cinepolis/data/models/entities/movies/movies.model.dart';
+import 'package:cinepolis/data/models/entities/promotions/products.model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class NewsItem extends StatelessWidget {
-  final MoviesModel model;
-  final Function funtion;
+class ProductsItem extends StatelessWidget {
+  final ProductsModel model;
 
-  const NewsItem(this.model, this.funtion, {Key? key}) : super(key: key);
+  const ProductsItem(this.model, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,25 +19,16 @@ class NewsItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         child: ListTile(
-          onTap: () => funtion(),
           subtitle: Row(children: [
             _imageContain(context, model.photo!),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _title(context, model.nombre!),
-                  _subtitle(context, "Clasificación: ${model.clasificacion!}")
-                      .paddingOnly(top: 8),
-                  _subtitle(context, "Duración: ${model.duracion!} min")
+                  _title(context, model.producto!),
+                  _subtitle(context, model.descripcion!).paddingOnly(top: 8),
+                  _subtitle(context, "Precio: \$ ${model.precioV!}")
                       .paddingOnly(top: 3),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: model.isEstreno!
-                        ? _subtitle(context, "Estreno",
-                            color: Colors.amber, size: 2.5)
-                        : Container(),
-                  )
                 ],
               ).paddingOnly(left: 20),
             ),
@@ -67,8 +58,8 @@ class NewsItem extends StatelessWidget {
           .bodyText1!
           .apply(color: color, fontSizeDelta: size),
       overflow: TextOverflow.fade,
-      maxLines: 1,
-      softWrap: false,
+      maxLines: 5,
+      softWrap: true,
       textWidthBasis: TextWidthBasis.parent,
     );
   }

@@ -6,11 +6,15 @@ class CandyStoreController extends GetxController {
   late final IProductsService _iProductsService;
 
   var products = <ProductsModel>[].obs;
+  var loading = false.obs;
+
   CandyStoreController(this._iProductsService);
 
   @override
   void onInit() async {
     super.onInit();
+    loading.value = true;
     products.value = await _iProductsService.getAllProducts();
+    loading.value = false;
   }
 }
