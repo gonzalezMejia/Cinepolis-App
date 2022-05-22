@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 
 class CustomDropDown extends StatelessWidget {
-  CustomDropDown(
-      {required this.text,
-        required this.onchange,
-        required this.selectedId,
-        required this.listDynamic});
+  const CustomDropDown(
+      {Key? key,
+      required this.text,
+      required this.onchange,
+      required this.selectedId,
+      required this.listDynamic})
+      : super(key: key);
 
   final Function(int?) onchange;
   final String text;
@@ -22,9 +24,8 @@ class CustomDropDown extends StatelessWidget {
       onChanged: (value) => onchange(value),
       decoration: InputDecoration(
         labelText: text,
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
       ),
     ).paddingOnly(left: 20, top: 20, right: 20);
   }
 }
-

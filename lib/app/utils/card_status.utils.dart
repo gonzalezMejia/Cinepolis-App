@@ -11,11 +11,10 @@ class StatusIndicator {
 
   static approved() => _line(color: Colors.lightGreenAccent);
 
-  static _line({Color color = Colors.transparent}) => Container(
-          child: VerticalDivider(
+  static _line({Color color = Colors.transparent}) => VerticalDivider(
         color: color,
         thickness: 10,
-      ));
+      );
 }
 
 class StatusIcons {
@@ -41,8 +40,7 @@ class StatusIcons {
           {Color color = Colors.transparent,
           double size = 24.0,
           String label = ""}) =>
-      Container(
-          child: Column(
+      Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
@@ -55,8 +53,8 @@ class StatusIcons {
               padding: const EdgeInsets.only(),
               child: Text(
                 label,
-                style: TextStyle(color: Colors.white, fontSize: 5),
+                style: const TextStyle(color: Colors.white, fontSize: 5),
               ))
         ],
-      ));
+      );
 }

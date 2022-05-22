@@ -1,12 +1,12 @@
-import 'package:Cinepolis/core/values/enviroments.dart';
-import 'package:Cinepolis/data/models/entities/dynamic/evidences.model.dart';
+import 'package:cinepolis/core/values/enviroments.dart';
+import 'package:cinepolis/data/models/entities/dynamic/evidences.model.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 
 class ImageDetail extends StatelessWidget {
   final Evidences evidence;
   final bool isRemovable;
-  static const String imagesUrl = Environments.FILE_MANAGER_VIEW_URL;
+  static const String imagesUrl = Environments.fileManagerViewUrl;
   final GestureTapCallback onDelete;
 
   const ImageDetail(

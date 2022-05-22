@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_holo_date_picker/date_picker.dart';
 
 // ignore: must_be_immutable
-class CustomDatePicker extends StatelessWidget{
-
+class CustomDatePicker extends StatelessWidget {
   var datePickedValue = DateTime.now();
   final date = TextEditingController(text: 'Ingresa una fecha');
   final Function(String date) dateValue;
 
-  CustomDatePicker(this.dateValue);
+  CustomDatePicker(this.dateValue, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +20,13 @@ class CustomDatePicker extends StatelessWidget{
                 Icons.calendar_today_outlined,
                 color: Theme.of(context).hoverColor,
               ),
-              onPressed: () async{
-                datePickedValue= (await DatePicker.showSimpleDatePicker(
+              onPressed: () async {
+                datePickedValue = (await DatePicker.showSimpleDatePicker(
                   context,
                   titleText: 'Ingresa una fecha',
                   initialDate: datePickedValue,
-                  firstDate: DateTime.now().add(Duration(days: -30)),
-                  lastDate: DateTime.now().add(Duration(days: 30)),
+                  firstDate: DateTime.now().add(const Duration(days: -30)),
+                  lastDate: DateTime.now().add(const Duration(days: 30)),
                   dateFormat: "yyyy-MM-dd",
                   locale: DatePicker.localeFromString("es"),
                   backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -38,12 +37,12 @@ class CustomDatePicker extends StatelessWidget{
                   textColor: Theme.of(context).highlightColor,
                 ))!;
 
-                if (datePickedValue.toIso8601String().isEmpty){
+                if (datePickedValue.toIso8601String().isEmpty) {
                   date.text = 'Ingresa una fecha';
-                dateValue("");
-                } else{
+                  dateValue("");
+                } else {
                   date.text = datePickedValue.toString().split(' ')[0].trim();
-                dateValue(date.text);
+                  dateValue(date.text);
                 }
               }),
         ),

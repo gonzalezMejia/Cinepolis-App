@@ -1,4 +1,4 @@
-import 'package:Cinepolis/app/widgets/custom_button/custom_button.widget.dart';
+import 'package:cinepolis/app/widgets/custom_button/custom_button.widget.dart';
 import 'package:flutter/material.dart';
 
 class SimpleAppBarAction extends StatelessWidget {

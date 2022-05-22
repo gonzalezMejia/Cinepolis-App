@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomCardImages extends StatelessWidget {
-  CustomCardImages({required this.item, required this.onPressed});
+  const CustomCardImages(
+      {Key? key, required this.item, required this.onPressed})
+      : super(key: key);
 
   final GestureTapCallback onPressed;
   final String item;
@@ -10,7 +12,7 @@ class CustomCardImages extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPressed,
-      child: new Card(
+      child: Card(
           elevation: 2,
           child: Column(
             children: <Widget>[

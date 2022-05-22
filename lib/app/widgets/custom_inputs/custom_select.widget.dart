@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CustomSelect extends StatelessWidget {
-  CustomSelect({required this.data, required this.onChanged, required this.selectedItem, required this.propNameId, required this.propNameDescription});
+  const CustomSelect(
+      {Key? key,
+      required this.data,
+      required this.onChanged,
+      required this.selectedItem,
+      required this.propNameId,
+      required this.propNameDescription})
+      : super(key: key);
 
   final Function(int?) onChanged;
   final List<dynamic> data;
@@ -14,15 +21,14 @@ class CustomSelect extends StatelessWidget {
     return DropdownButtonFormField<int>(
       isExpanded: true,
       value: selectedItem,
-      items: data.map((e) => 
-        DropdownMenuItem(
-          value: int.parse(e[propNameId]),
-          child: Text(e[propNameDescription])
-        )
-      ).toList(),
+      items: data
+          .map((e) => DropdownMenuItem(
+              value: int.parse(e[propNameId]),
+              child: Text(e[propNameDescription])))
+          .toList(),
       onChanged: (value) => onChanged(value),
-      decoration: InputDecoration(              
-        labelText: "Sucursal",                
+      decoration: const InputDecoration(
+        labelText: "Sucursal",
         border: OutlineInputBorder(),
       ),
     );

@@ -1,11 +1,7 @@
 // ignore_for_file: unnecessary_new
 
-import 'package:Cinepolis/app/pages/main/home/home.controller.dart';
-import 'package:Cinepolis/app/pages/billboard/billboard.controller.dart';
-import 'package:Cinepolis/app/pages/main/home/widgets/news_item.widget.dart';
-import 'package:Cinepolis/app/widgets/app_bar/simple_app_bar/simple_app_bar.widget.dart';
-import 'package:Cinepolis/data/models/entities/movies/movies.model.dart';
-import 'package:extended_sliver/extended_sliver.dart';
+import 'package:cinepolis/app/pages/billboard/billboard.controller.dart';
+import 'package:cinepolis/data/models/entities/movies/movies.model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

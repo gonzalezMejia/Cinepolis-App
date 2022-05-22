@@ -1,4 +1,4 @@
-import 'package:Cinepolis/app/widgets/custom_button/custom_loading_button.widget.dart';
+import 'package:cinepolis/app/widgets/custom_button/custom_loading_button.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'login.controller.dart';
@@ -9,9 +9,7 @@ class LoginPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-          physics: const BouncingScrollPhysics(),
-          children: <Widget>[
+      body: ListView(physics: const BouncingScrollPhysics(), children: <Widget>[
         Center(child: Image.asset('assets/images/cinepolis.png'))
             .paddingAll(40),
         _user(controller.username.value, context),
@@ -22,14 +20,12 @@ class LoginPage extends GetView<LoginController> {
     );
   }
 
-
-
   Widget _containButton(BuildContext context) {
     return Obx(() {
       return Container(
-        margin: EdgeInsets.only(left: 40, right: 40),
+        margin: const EdgeInsets.only(left: 40, right: 40),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(40)),
+          borderRadius: const BorderRadius.all(Radius.circular(40)),
           border: Border.all(
             style: BorderStyle.solid,
             color: Colors.white,
@@ -51,7 +47,7 @@ class LoginPage extends GetView<LoginController> {
       controller: controller,
       cursorColor: Theme.of(context).hoverColor,
       decoration: InputDecoration(
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
         labelText: "Usuario",
         labelStyle: TextStyle(color: Theme.of(context).hoverColor),
         enabledBorder: OutlineInputBorder(
@@ -68,10 +64,10 @@ class LoginPage extends GetView<LoginController> {
     return TextField(
       obscureText: true,
       controller: controller,
-      onSubmitted: (s)=> this.controller.startTime(),
+      onSubmitted: (s) => this.controller.startTime(),
       cursorColor: Theme.of(context).hoverColor,
       decoration: InputDecoration(
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
         labelText: "Contraseña",
         labelStyle: TextStyle(color: Theme.of(context).hoverColor),
         enabledBorder: OutlineInputBorder(

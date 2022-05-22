@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 class MsgUtils {
   static success(String message, {title = 'Operacion correcta'}) {
     _showMessage(message, title: title);
@@ -15,7 +14,7 @@ class MsgUtils {
     Get.defaultDialog(title: title, middleText: message, actions: [
       ElevatedButton(
           onPressed: () => Get.back(),
-          child: Text(
+          child: const Text(
             "Aceptar",
             style: TextStyle(color: Colors.white),
           ),
@@ -27,8 +26,8 @@ class MsgUtils {
   static confirm(BuildContext context, String message, Function onConfirm,
       Function onCancel,
       {String title = 'Confirmación',
-        String acceptText = 'Aceptar',
-        String cancelText = 'Cancelar'}) async {
+      String acceptText = 'Aceptar',
+      String cancelText = 'Cancelar'}) async {
     final result = await showDialog(
         context: context,
         barrierDismissible: false,
@@ -36,7 +35,7 @@ class MsgUtils {
           return AlertDialog(
             title: Text(
               title,
-              style: TextStyle(color: Colors.white, fontSize: 16),
+              style: const TextStyle(color: Colors.white, fontSize: 16),
             ),
             content: Text(message),
             actions: <Widget>[
@@ -46,16 +45,17 @@ class MsgUtils {
           );
         });
 
-    if (result)
+    if (result) {
       onConfirm();
-    else
+    } else {
       onCancel();
+    }
   }
 
   static Future<bool> exit(BuildContext context, String message,
       GestureTapCallback onConfirm) async {
     final result = await Get.dialog(AlertDialog(
-      title: Text(
+      title: const Text(
         "Advertencia",
         style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
       ),
@@ -103,8 +103,7 @@ class SnackUtils {
       snackPosition: SnackPosition.BOTTOM,
       colorText: Colors.white,
       backgroundColor: Colors.white12,
-      margin: EdgeInsets.only(left: 15, right: 15, bottom: 20),
+      margin: const EdgeInsets.only(left: 15, right: 15, bottom: 20),
     );
   }
 }
-

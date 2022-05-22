@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 class CustomLoadingButton extends StatelessWidget {
-  CustomLoadingButton(
-      {required this.text,
+  const CustomLoadingButton(
+      {Key? key,
+      required this.text,
       required this.onPressed,
       required this.btnController,
-      this.color = Colors.blue});
+      this.color = Colors.blue})
+      : super(key: key);
 
   final RoundedLoadingButtonController btnController;
   final GestureTapCallback onPressed;
@@ -20,7 +22,7 @@ class CustomLoadingButton extends StatelessWidget {
       controller: btnController,
       onPressed: onPressed,
       resetAfterDuration: true,
-      resetDuration: Duration(seconds: 3),
+      resetDuration: const Duration(seconds: 3),
       child: Text(text, style: Theme.of(context).primaryTextTheme.headline6),
       color: defineColor(context),
       successColor: defineColor(context),
@@ -29,7 +31,10 @@ class CustomLoadingButton extends StatelessWidget {
   }
 
   Color defineColor(BuildContext context) {
-    if (color == Colors.blue) return Theme.of(context).colorScheme.secondary;
-    else return color;
+    if (color == Colors.blue) {
+      return Theme.of(context).colorScheme.secondary;
+    } else {
+      return color;
+    }
   }
 }

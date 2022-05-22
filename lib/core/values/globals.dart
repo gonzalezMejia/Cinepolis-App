@@ -1,5 +1,4 @@
 class Globals {
-  static const String TOKEN_KEY = 'token';
-  static const String CURRENT_USER_KEY = 'current_user';
-
+  static const String tokenKey = 'token';
+  static const String currentUserKey = 'current_user';
 }

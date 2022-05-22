@@ -1,7 +1,7 @@
-import 'package:Cinepolis/app/pages/main/home/home.controller.dart';
-import 'package:Cinepolis/app/pages/main/home/widgets/news_item.widget.dart';
-import 'package:Cinepolis/app/utils/msg_options.utils.dart';
-import 'package:Cinepolis/app/widgets/progress/progress.widget.dart';
+import 'package:cinepolis/app/pages/main/home/home.controller.dart';
+import 'package:cinepolis/app/pages/main/home/widgets/news_item.widget.dart';
+import 'package:cinepolis/app/utils/msg_options.utils.dart';
+import 'package:cinepolis/app/widgets/progress/progress.widget.dart';
 import 'package:extended_sliver/extended_sliver.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +12,7 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => controller.loading.value
-        ? ProgressPrimary()
+        ? const ProgressPrimary()
         : CustomScrollView(shrinkWrap: true, slivers: [
             //static widgets
             _getPromotions(context),

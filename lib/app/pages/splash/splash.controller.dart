@@ -1,11 +1,11 @@
 import 'dart:async';
-import 'package:Cinepolis/core/routes/pages.dart';
-import 'package:Cinepolis/data/services/auth/auth.contract.dart';
+import 'package:cinepolis/core/routes/pages.dart';
+import 'package:cinepolis/data/services/auth/auth.contract.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
   late final IAuthService _service;
-  var nameCorporation = 'Cinepolis App'.obs;
+  var nameCorporation = 'cinepolis App'.obs;
   var fadeText = true.obs;
 
   var duration = const Duration(seconds: 2);
@@ -34,12 +34,12 @@ class SplashController extends GetxController {
     return Timer(duration, checkLoginUser);
   }
 
-   checkLoginUser() async {
+  checkLoginUser() async {
     var currentUser = await _service.checkUser();
     if (currentUser != null && currentUser.id != 0) {
-      Get.offAllNamed(Routes.MAIN);
+      Get.offAllNamed(Routes.main);
     } else {
-      Get.offAllNamed(Routes.LOGIN);
+      Get.offAllNamed(Routes.login);
     }
   }
 }

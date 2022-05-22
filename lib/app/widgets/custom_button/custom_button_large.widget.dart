@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CustomButtonLarge extends StatelessWidget {
-  CustomButtonLarge(
-      {required this.text, required this.onPressed, this.color = Colors.blue});
+  const CustomButtonLarge(
+      {Key? key,
+      required this.text,
+      required this.onPressed,
+      this.color = Colors.blue})
+      : super(key: key);
 
   final GestureTapCallback onPressed;
   final String text;
@@ -12,7 +16,7 @@ class CustomButtonLarge extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(28.8)),
+        borderRadius: const BorderRadius.all(Radius.circular(28.8)),
         border: Border.all(
           color: Colors.white,
           width: 2,
@@ -29,7 +33,7 @@ class CustomButtonLarge extends StatelessWidget {
                     fontSize: 15, color: Theme.of(context).hoverColor),
                 textAlign: TextAlign.center,
               ),
-              padding: EdgeInsets.all(20)),
+              padding: const EdgeInsets.all(20)),
           style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(defineColor(context)),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(

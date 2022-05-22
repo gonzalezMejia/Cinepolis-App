@@ -1,10 +1,10 @@
-import 'package:Cinepolis/app/pages/login/login.page.dart';
-import 'package:Cinepolis/app/pages/main/main.page.dart';
-import 'package:Cinepolis/app/pages/splash/splash.page.dart';
-import 'package:Cinepolis/core/routes/bindings.dart';
-import 'package:Cinepolis/data/services/auth/auth.api.service.dart';
-import 'package:Cinepolis/data/services/employees/user.api.service.dart';
-import 'package:Cinepolis/data/services/filemanager/file_manager.api.service.dart';
+import 'package:cinepolis/app/pages/login/login.page.dart';
+import 'package:cinepolis/app/pages/main/main.page.dart';
+import 'package:cinepolis/app/pages/splash/splash.page.dart';
+import 'package:cinepolis/core/routes/bindings.dart';
+import 'package:cinepolis/data/services/auth/auth.api.service.dart';
+import 'package:cinepolis/data/services/employees/user.api.service.dart';
+import 'package:cinepolis/data/services/filemanager/file_manager.api.service.dart';
 import 'package:get/get.dart';
 
 part 'routes.dart';
@@ -16,15 +16,15 @@ abstract class Pages {
 
   static final pages = [
     GetPage(
-        name: Routes.SPLASH,
+        name: Routes.splash,
         page: () => const SplashPage(),
         binding: SplashBinding(authService)),
     GetPage(
-        name: Routes.LOGIN,
+        name: Routes.login,
         page: () => const LoginPage(),
         binding: LoginBinding(authService)),
     GetPage(
-        name: Routes.MAIN,
+        name: Routes.main,
         page: () => const MainPage(),
         binding: MainBinding(authService, employeeService))
   ];

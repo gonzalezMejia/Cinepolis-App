@@ -1,10 +1,10 @@
-import 'package:Cinepolis/app/utils/msg.utils.dart';
-import 'package:Cinepolis/core/values/enviroments.dart';
-import 'package:Cinepolis/data/services/base.service.dart';
-import 'package:Cinepolis/data/services/filemanager/file_manager.contract.dart';
+import 'package:cinepolis/app/utils/msg.utils.dart';
+import 'package:cinepolis/core/values/enviroments.dart';
+import 'package:cinepolis/data/services/base.service.dart';
+import 'package:cinepolis/data/services/filemanager/file_manager.contract.dart';
 
 class FileManagerApiService extends BaseService implements IFileManagerService {
-  final String ssoUrl = Environments.FILE_MANAGER_URL;
+  final String ssoUrl = Environments.fileManagerUrl;
 
   @override
   Future<dynamic> uploadPicture(String path) async {
@@ -14,7 +14,7 @@ class FileManagerApiService extends BaseService implements IFileManagerService {
       return userJson;
     } catch (e) {
       SnackUtils.error('Servicio no disponible.', 'Advertencia');
-      print(e);
+      //print(e);
       return null;
     }
   }

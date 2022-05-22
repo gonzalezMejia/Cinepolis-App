@@ -1,15 +1,15 @@
 part of 'pages.dart';
 
 abstract class Routes {
-  static const SPLASH = '/splash';
-  static const MAIN = '/main';
-  static const LOGIN = '/login';
-  static const PROFILE = '/profile';
-  static const CASH_REGISTER = '/cashRegister';
-  static const CASH_NEW = '/cashNew';
-  static const ROTISSERIE_INVENTORY = '/rotisserie/inventory';
-  static const ROTISSERIE_INVENTORY_DETAIL = '/rotisserie/inventory/detail';
-  static const ROTISSERIE_INVENTORY_NEW = '/rotisserie/inventory_new';
-  static const QUIZZER = '/quizzer';
-  static const QUIZZER_ANSWER = '/quizzer_answere';
+  static const splash = '/splash';
+  static const main = '/main';
+  static const login = '/login';
+  static const profile = '/profile';
+  static const cashRegister = '/cashRegister';
+  static const cashNew = '/cashNew';
+  static const rotisserieInventory = '/rotisserie/inventory';
+  static const rotisserieInventoryDetail = '/rotisserie/inventory/detail';
+  static const rotisserieInventoryNew = '/rotisserie/inventory_new';
+  static const quizzer = '/quizzer';
+  static const quizzerAnswer = '/quizzer_answere';
 }

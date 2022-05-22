@@ -27,14 +27,14 @@ class PromotionsModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['producto'] = this.producto;
-    data['descripcion'] = this.descripcion;
-    data['categoria'] = this.categoria;
-    data['idCategoria'] = this.idCategoria;
-    data['photo'] = this.photo;
-    data['precioV'] = this.precioV;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['producto'] = producto;
+    data['descripcion'] = descripcion;
+    data['categoria'] = categoria;
+    data['idCategoria'] = idCategoria;
+    data['photo'] = photo;
+    data['precioV'] = precioV;
     return data;
   }
 }

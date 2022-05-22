@@ -1,16 +1,15 @@
-import 'package:Cinepolis/app/pages/billboard/billboard.controller.dart';
-import 'package:Cinepolis/app/pages/candy_store/candy_store.controller.dart';
-import 'package:Cinepolis/app/pages/login/login.controller.dart';
-import 'package:Cinepolis/app/pages/main/home/home.controller.dart';
-import 'package:Cinepolis/app/pages/main/main.controller.dart';
-import 'package:Cinepolis/app/pages/profile/profile.controller.dart';
-import 'package:Cinepolis/app/pages/splash/splash.controller.dart';
-import 'package:Cinepolis/data/models/entities/movies/movies.model.dart';
-import 'package:Cinepolis/data/services/auth/auth.contract.dart';
-import 'package:Cinepolis/data/services/employees/user.contract.dart';
-import 'package:Cinepolis/data/services/movies/movies.api.service.dart';
-import 'package:Cinepolis/data/services/products/products.api.service.dart';
-import 'package:Cinepolis/data/services/promotions/promotions.api.service.dart';
+import 'package:cinepolis/app/pages/billboard/billboard.controller.dart';
+import 'package:cinepolis/app/pages/candy_store/candy_store.controller.dart';
+import 'package:cinepolis/app/pages/login/login.controller.dart';
+import 'package:cinepolis/app/pages/main/home/home.controller.dart';
+import 'package:cinepolis/app/pages/main/main.controller.dart';
+import 'package:cinepolis/app/pages/profile/profile.controller.dart';
+import 'package:cinepolis/app/pages/splash/splash.controller.dart';
+import 'package:cinepolis/data/services/auth/auth.contract.dart';
+import 'package:cinepolis/data/services/employees/user.contract.dart';
+import 'package:cinepolis/data/services/movies/movies.api.service.dart';
+import 'package:cinepolis/data/services/products/products.api.service.dart';
+import 'package:cinepolis/data/services/promotions/promotions.api.service.dart';
 import 'package:get/get.dart';
 
 class SplashBinding implements Bindings {

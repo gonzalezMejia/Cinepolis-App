@@ -1,4 +1,4 @@
-import 'package:Cinepolis/app/widgets/sheets/sheet_container.widget.dart';
+import 'package:cinepolis/app/widgets/sheets/sheet_container.widget.dart';
 import 'package:flutter/material.dart';
 
 class SheetUtils {

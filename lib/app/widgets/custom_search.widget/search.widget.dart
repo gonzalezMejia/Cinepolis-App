@@ -4,7 +4,9 @@ class SearchFilterWidget extends StatelessWidget {
   final ValueChanged<String> onChanged;
   final TextEditingController controllerSearch;
 
-  SearchFilterWidget(this.controllerSearch, {required this.onChanged});
+  const SearchFilterWidget(this.controllerSearch,
+      {Key? key, required this.onChanged})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +22,10 @@ class SearchFilterWidget extends StatelessWidget {
       child: TextField(
         controller: controllerSearch,
         decoration: InputDecoration(
-          icon: Icon(Icons.search, color: Colors.black),
+          icon: const Icon(Icons.search, color: Colors.black),
           suffixIcon: controllerSearch.text.isNotEmpty
               ? GestureDetector(
-                  child: Icon(Icons.close, color: Colors.black),
+                  child: const Icon(Icons.close, color: Colors.black),
                   onTap: () {
                     controllerSearch.clear();
                     onChanged('');
@@ -32,10 +34,10 @@ class SearchFilterWidget extends StatelessWidget {
                 )
               : null,
           hintText: 'Buscar',
-          hintStyle: TextStyle(color: Colors.black54),
+          hintStyle: const TextStyle(color: Colors.black54),
           border: InputBorder.none,
         ),
-        style: TextStyle(color: Colors.black),
+        style: const TextStyle(color: Colors.black),
         onChanged: onChanged,
       ),
     );

@@ -9,19 +9,21 @@ class CircleIconButton extends StatelessWidget {
   late Color? foregroundColor;
 
   CircleIconButton(
-      {required this.iconData,
+      {Key? key,
+      required this.iconData,
       required this.onPressed,
       double? size,
       Color? backgroundColor,
-      Color? foregroundColor}) {
+      Color? foregroundColor})
+      : super(key: key) {
     this.size = size ?? 40;
-    this.backgroundColor = backgroundColor;
-    this.foregroundColor = foregroundColor;
+    this.backgroundColor = backgroundColor ?? Colors.white;
+    this.foregroundColor = foregroundColor ?? Colors.blue;
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         width: size,
         height: size,
         child: RawMaterialButton(
@@ -32,7 +34,7 @@ class CircleIconButton extends StatelessWidget {
               size: size! * 0.6,
               color:
                   foregroundColor ?? Theme.of(context).colorScheme.secondary),
-          shape: CircleBorder(),
+          shape: const CircleBorder(),
         ));
   }
 }

@@ -6,27 +6,27 @@ class CustomContainer extends StatelessWidget {
   final CrossAxisAlignment crossAxisAlignment;
 
   const CustomContainer(
-      {required this.labelText,
+      {Key? key,
+      required this.labelText,
       required this.children,
-      this.crossAxisAlignment = CrossAxisAlignment.start});
+      this.crossAxisAlignment = CrossAxisAlignment.start})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: InputDecorator(
-        decoration: InputDecoration(
-          labelText: labelText,
-          labelStyle: TextStyle(color: Theme.of(context).hoverColor),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Theme.of(context).hoverColor),
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
+    return InputDecorator(
+      decoration: InputDecoration(
+        labelText: labelText,
+        labelStyle: TextStyle(color: Theme.of(context).hoverColor),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Theme.of(context).hoverColor),
         ),
-        child: Column(
-          crossAxisAlignment: crossAxisAlignment,
-          children: children,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
         ),
+      ),
+      child: Column(
+        crossAxisAlignment: crossAxisAlignment,
+        children: children,
       ),
     );
   }

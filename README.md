@@ -1,4 +1,4 @@
-# Cinepolis
+# cinepolis
 
 A new Flutter project.
 

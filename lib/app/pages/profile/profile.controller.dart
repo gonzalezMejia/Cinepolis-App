@@ -1,11 +1,11 @@
-import 'package:Cinepolis/app/utils/storage.utils.dart';
-import 'package:Cinepolis/core/routes/pages.dart';
-import 'package:Cinepolis/core/values/enviroments.dart';
-import 'package:Cinepolis/core/values/globals.dart';
-import 'package:Cinepolis/data/models/entities/users/user.model.dart';
-import 'package:Cinepolis/data/models/entities/users/user_detail.model.dart';
-import 'package:Cinepolis/data/services/auth/auth.contract.dart';
-import 'package:Cinepolis/data/services/employees/user.contract.dart';
+import 'package:cinepolis/app/utils/storage.utils.dart';
+import 'package:cinepolis/core/routes/pages.dart';
+import 'package:cinepolis/core/values/enviroments.dart';
+import 'package:cinepolis/core/values/globals.dart';
+import 'package:cinepolis/data/models/entities/users/user.model.dart';
+import 'package:cinepolis/data/models/entities/users/user_detail.model.dart';
+import 'package:cinepolis/data/services/auth/auth.contract.dart';
+import 'package:cinepolis/data/services/employees/user.contract.dart';
 import 'package:get/get.dart';
 
 class ProfileController extends GetxController {
@@ -16,7 +16,7 @@ class ProfileController extends GetxController {
   var profile = <UserDetail>[].obs;
   var loading = true.obs;
 
-  final String imagesUrl = Environments.IMAGES_URL;
+  final String imagesUrl = Environments.imageUrl;
 
   ProfileController(this._service, this._employeeService);
 
@@ -37,13 +37,13 @@ class ProfileController extends GetxController {
   }
 
   singOut() {
-    Get.offAllNamed(Routes.LOGIN);
+    Get.offAllNamed(Routes.login);
 
-    LocalStorageUtils.setStringKey(Globals.CURRENT_USER_KEY, "");
-    LocalStorageUtils.setStringKey(Globals.TOKEN_KEY, "");
+    LocalStorageUtils.setStringKey(Globals.currentUserKey, "");
+    LocalStorageUtils.setStringKey(Globals.tokenKey, "");
 
     //Borramos los shared
-    SharedPreferenceUtils.removeValues(Globals.TOKEN_KEY);
-    SharedPreferenceUtils.removeValues(Globals.CURRENT_USER_KEY);
+    SharedPreferenceUtils.removeValues(Globals.tokenKey);
+    SharedPreferenceUtils.removeValues(Globals.currentUserKey);
   }
 }

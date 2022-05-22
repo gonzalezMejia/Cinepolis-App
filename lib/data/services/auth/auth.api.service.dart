@@ -1,17 +1,16 @@
 import 'dart:convert';
-import 'package:Cinepolis/app/utils/msg.utils.dart';
-import 'package:Cinepolis/app/utils/storage.utils.dart';
-import 'package:Cinepolis/core/values/enviroments.dart';
-import 'package:Cinepolis/core/values/globals.dart';
-import 'package:Cinepolis/data/models/entities/token/token_response.model.dart';
-import 'package:Cinepolis/data/models/entities/users/user.model.dart';
-import 'package:Cinepolis/data/models/enums/request_method.enum.dart';
-import 'package:Cinepolis/data/services/auth/auth.contract.dart';
-import 'package:Cinepolis/data/services/base.service.dart';
-
+import 'package:cinepolis/app/utils/msg.utils.dart';
+import 'package:cinepolis/app/utils/storage.utils.dart';
+import 'package:cinepolis/core/values/enviroments.dart';
+import 'package:cinepolis/core/values/globals.dart';
+import 'package:cinepolis/data/models/entities/token/token_response.model.dart';
+import 'package:cinepolis/data/models/entities/users/user.model.dart';
+import 'package:cinepolis/data/models/enums/request_method.enum.dart';
+import 'package:cinepolis/data/services/auth/auth.contract.dart';
+import 'package:cinepolis/data/services/base.service.dart';
 
 class AuthApiService extends BaseService implements IAuthService {
-  final String ssoUrl = Environments.SSO_URL;
+  final String ssoUrl = Environments.ssoUrl;
 
   @override
   Future<User?> singIn(String username, String password) async {
@@ -24,7 +23,7 @@ class AuthApiService extends BaseService implements IAuthService {
               'username=$username&password=$password&grant_type=password&scope=pTUOcr01wJjbFTdRBDmRcA==');
 
       // Save token in local storage
-      LocalStorageUtils.setStringKey(Globals.TOKEN_KEY,
+      LocalStorageUtils.setStringKey(Globals.tokenKey,
           TokenResponse.fromJson(jsonTokenResponse).accessToken);
 
       // Get User Value
@@ -33,7 +32,7 @@ class AuthApiService extends BaseService implements IAuthService {
           useDefaultUrl: false);
 
       LocalStorageUtils.setStringKey(
-          Globals.CURRENT_USER_KEY, jsonEncode(userJson));
+          Globals.currentUserKey, jsonEncode(userJson));
 
       return User.fromJson(userJson);
     } catch (e) {
@@ -46,10 +45,11 @@ class AuthApiService extends BaseService implements IAuthService {
   @override
   Future<User?> checkUser() async {
     var userJson =
-        await LocalStorageUtils.getStringByKey(Globals.CURRENT_USER_KEY);
-    if (userJson.isEmpty)
+        await LocalStorageUtils.getStringByKey(Globals.currentUserKey);
+    if (userJson.isEmpty) {
       return null;
-    else
+    } else {
       return User.fromJson(json.decode(userJson));
+    }
   }
 }

@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:Cinepolis/app/utils/msg.utils.dart';
-import 'package:Cinepolis/app/utils/storage.utils.dart';
-import 'package:Cinepolis/core/routes/pages.dart';
-import 'package:Cinepolis/core/values/globals.dart';
-import 'package:Cinepolis/data/models/core/api_exception.model.dart';
-import 'package:Cinepolis/data/models/enums/request_method.enum.dart';
-import 'package:Cinepolis/data/providers/api_exceptions.dart';
+import 'package:cinepolis/app/utils/msg.utils.dart';
+import 'package:cinepolis/app/utils/storage.utils.dart';
+import 'package:cinepolis/core/routes/pages.dart';
+import 'package:cinepolis/core/values/globals.dart';
+import 'package:cinepolis/data/models/core/api_exception.model.dart';
+import 'package:cinepolis/data/models/enums/request_method.enum.dart';
+import 'package:cinepolis/data/providers/api_exceptions.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:mime/mime.dart';
@@ -27,15 +27,14 @@ class ApiProvider {
       bool returnFullResponse = false}) async {
     http.Response resp;
 
-    final Uri url =
-        Uri.parse(endPoint);
+    final Uri url = Uri.parse(endPoint);
 
     final Map<String, String> headers = <String, String>{};
     headers.putIfAbsent(
         HttpHeaders.contentTypeHeader, () => 'application/json');
 
     // Get and apply token
-    var token = await LocalStorageUtils.getStringByKey(Globals.TOKEN_KEY);
+    var token = await LocalStorageUtils.getStringByKey(Globals.tokenKey);
     if (token.isNotEmpty) {
       headers.putIfAbsent(
           HttpHeaders.authorizationHeader, () => 'Bearer ' + token);
@@ -92,8 +91,8 @@ class ApiProvider {
         throw BadRequestException(response.body.toString());
       case 401:
       case 403:
-        LocalStorageUtils.setStringKey(Globals.CURRENT_USER_KEY, '');
-        Get.toNamed(Routes.LOGIN);
+        LocalStorageUtils.setStringKey(Globals.currentUserKey, '');
+        Get.toNamed(Routes.login);
         throw UnauthorisedException(response.body.toString());
       case 500:
         var exception =

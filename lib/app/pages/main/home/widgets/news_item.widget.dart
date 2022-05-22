@@ -1,10 +1,10 @@
-import 'package:Cinepolis/data/models/entities/movies/movies.model.dart';
+import 'package:cinepolis/data/models/entities/movies/movies.model.dart';
 import 'package:flutter/material.dart';
 
 class NewsItem extends StatelessWidget {
   final MoviesModel model;
 
-  NewsItem(this.model);
+  const NewsItem(this.model, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class NewsItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-           /* GestureDetector(
+            /* GestureDetector(
               onTap: () => MsgOptions.customImage(context, model.traierUrl!,
                   tag: model.idAviso.toString()),
               child: ClipRRect(
@@ -41,7 +41,7 @@ class NewsItem extends StatelessWidget {
   Widget _title(BuildContext context, String text) {
     return Text(
       text,
-      style: TextStyle(
+      style: const TextStyle(
           color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
       overflow: TextOverflow.fade,
       maxLines: 1,

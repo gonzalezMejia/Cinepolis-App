@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  CustomButton(
-      {required this.text, required this.onPressed, this.color = Colors.blue});
+  const CustomButton(
+      {Key? key,
+      required this.text,
+      required this.onPressed,
+      this.color = Colors.blue})
+      : super(key: key);
 
   final GestureTapCallback onPressed;
   final String text;
@@ -12,7 +16,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
+        borderRadius: const BorderRadius.all(Radius.circular(8)),
         border: Border.all(
           color: Colors.white,
           width: 2,
@@ -31,7 +35,7 @@ class CustomButton extends StatelessWidget {
               style: Theme.of(context).textTheme.headline4,
               textAlign: TextAlign.center,
             ),
-            padding: EdgeInsets.all(10)),
+            padding: const EdgeInsets.all(10)),
       ),
     );
   }

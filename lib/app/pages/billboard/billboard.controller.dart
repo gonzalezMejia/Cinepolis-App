@@ -1,6 +1,5 @@
-import 'package:Cinepolis/core/routes/pages.dart';
-import 'package:Cinepolis/data/models/entities/movies/movies.model.dart';
-import 'package:Cinepolis/data/services/movies/movies.contract.dart';
+import 'package:cinepolis/data/models/entities/movies/movies.model.dart';
+import 'package:cinepolis/data/services/movies/movies.contract.dart';
 import 'package:get/get.dart';
 
 class BillBoardController extends GetxController {

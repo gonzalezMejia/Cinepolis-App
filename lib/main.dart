@@ -1,8 +1,8 @@
-import 'package:Cinepolis/app/pages/splash/splash.page.dart';
-import 'package:Cinepolis/core/routes/bindings.dart';
-import 'package:Cinepolis/core/routes/pages.dart';
-import 'package:Cinepolis/core/theme/dark_app_theme.dart';
-import 'package:Cinepolis/data/services/auth/auth.api.service.dart';
+import 'package:cinepolis/app/pages/splash/splash.page.dart';
+import 'package:cinepolis/core/routes/bindings.dart';
+import 'package:cinepolis/core/routes/pages.dart';
+import 'package:cinepolis/core/theme/dark_app_theme.dart';
+import 'package:cinepolis/data/services/auth/auth.api.service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
@@ -27,11 +27,11 @@ class MyApp extends StatelessWidget {
       highContrastDarkTheme: darkAppTheme,
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
-      initialRoute: Routes.SPLASH,
+      initialRoute: Routes.splash,
       defaultTransition: Transition.cupertino,
       initialBinding: SplashBinding(AuthApiService()),
       getPages: Pages.pages,
-      home: SplashPage(), //LoginPage(),
+      home: const SplashPage(), //LoginPage(),
     );
   }
 }

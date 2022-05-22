@@ -6,7 +6,11 @@ class SimpleAppBar extends StatelessWidget with PreferredSizeWidget {
   final List<Widget>? actions;
 
   SimpleAppBar(
-      {this.height = kToolbarHeight, required this.title, this.actions});
+      {Key? key,
+      this.height = kToolbarHeight,
+      required this.title,
+      this.actions})
+      : super(key: key);
 
   @override
   Size get preferredSize => Size.fromHeight(height);

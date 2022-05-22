@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 
 class ShadowUtils {
   static BoxDecoration hexImageSmall() {
-    return BoxDecoration(
+    return const BoxDecoration(
         shape: BoxShape.circle,
         boxShadow: [
-          const BoxShadow(color: Colors.white),
-          const BoxShadow(
+          BoxShadow(color: Colors.white),
+          BoxShadow(
             color: Colors.lightBlueAccent,
             spreadRadius: -12.0,
             blurRadius: 12.0,
           ),
         ],
-        image: new DecorationImage(
+        image: DecorationImage(
           fit: BoxFit.fill,
-          image: new AssetImage('assets/images/logo_esp_small.jpeg'),
+          image: AssetImage('assets/images/logo_esp_small.jpeg'),
         ));
   }
 }

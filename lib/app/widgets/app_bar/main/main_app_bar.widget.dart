@@ -1,4 +1,4 @@
-import 'package:Cinepolis/app/utils/shadow.utils.dart';
+import 'package:cinepolis/app/utils/shadow.utils.dart';
 import 'package:flutter/material.dart';
 
 class MainAppBar extends StatelessWidget with PreferredSizeWidget {

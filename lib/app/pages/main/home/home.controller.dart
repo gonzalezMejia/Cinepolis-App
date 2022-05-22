@@ -1,11 +1,11 @@
-import 'package:Cinepolis/core/routes/pages.dart';
-import 'package:Cinepolis/data/models/entities/movies/movies.model.dart';
-import 'package:Cinepolis/data/models/entities/promotions/promotions.model.dart';
-import 'package:Cinepolis/data/models/entities/users/user.model.dart';
-import 'package:Cinepolis/data/models/entities/users/user_detail.model.dart';
-import 'package:Cinepolis/data/services/auth/auth.contract.dart';
-import 'package:Cinepolis/data/services/movies/movies.contract.dart';
-import 'package:Cinepolis/data/services/promotions/promotions.contract.dart';
+import 'package:cinepolis/core/routes/pages.dart';
+import 'package:cinepolis/data/models/entities/movies/movies.model.dart';
+import 'package:cinepolis/data/models/entities/promotions/promotions.model.dart';
+import 'package:cinepolis/data/models/entities/users/user.model.dart';
+import 'package:cinepolis/data/models/entities/users/user_detail.model.dart';
+import 'package:cinepolis/data/services/auth/auth.contract.dart';
+import 'package:cinepolis/data/services/movies/movies.contract.dart';
+import 'package:cinepolis/data/services/promotions/promotions.contract.dart';
 import 'package:intl/intl.dart';
 import 'package:get/get.dart';
 
@@ -42,7 +42,7 @@ class HomeController extends GetxController {
       movies.value = await _moviesService.getMovies();
       promotions.value = await _promotionsService.getPromotions();
     } else {
-      Get.offAllNamed(Routes.LOGIN);
+      Get.offAllNamed(Routes.login);
     }
   }
 
@@ -60,6 +60,6 @@ class HomeController extends GetxController {
   }
 
   goToProfile() {
-    Get.toNamed(Routes.PROFILE);
+    Get.toNamed(Routes.profile);
   }
 }

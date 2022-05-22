@@ -1,4 +1,4 @@
-import 'package:Cinepolis/app/utils/colors.utils.dart';
+import 'package:cinepolis/app/utils/colors.utils.dart';
 import 'package:flutter/material.dart';
 
 final ThemeData appTheme = ThemeData(
@@ -12,7 +12,6 @@ final ThemeData appTheme = ThemeData(
         secondary: ColorsUtils.hexToColor('#212121'),
         primary: Colors.black,
         onSecondary: Colors.white,
-        secondaryVariant: Colors.white30,
         error: Colors.red,
         background: Colors.black45,
         brightness: Brightness.light,
@@ -20,7 +19,6 @@ final ThemeData appTheme = ThemeData(
         onError: Colors.red,
         onPrimary: Colors.black,
         onSurface: Colors.black45,
-        primaryVariant: Colors.black45,
         surface: Colors.black45),
     indicatorColor: Colors.white,
     backgroundColor: Colors.black45,
