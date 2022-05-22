@@ -10,7 +10,7 @@ class MoviesApiService extends BaseService implements IMoviesService {
   @override
   Future<List<MoviesModel>> getMovies() async {
     var userJson = await provider.request<MoviesModel>(
-        RequestMethod.get, "${_recruitmentUrl}api/cinepolis/movies",
+        RequestMethod.get, "${_recruitmentUrl}api/cinepolis/movies/summary",
         useDefaultUrl: false);
     return List<MoviesModel>.from(userJson.map((x) => MoviesModel.fromJson(x)));
   }
