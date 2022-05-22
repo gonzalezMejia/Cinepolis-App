@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class SplashController extends GetxController {
   late final IAuthService _service;
-  var nameCorporation = 'cinepolis App'.obs;
+  var nameCorporation = 'Cinepolis App'.obs;
   var fadeText = true.obs;
 
   var duration = const Duration(seconds: 2);

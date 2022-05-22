@@ -100,10 +100,10 @@ class SnackUtils {
     Get.snackbar(
       title,
       message,
-      snackPosition: SnackPosition.BOTTOM,
+      snackPosition: SnackPosition.TOP,
       colorText: Colors.white,
-      backgroundColor: Colors.white12,
-      margin: const EdgeInsets.only(left: 15, right: 15, bottom: 20),
+      backgroundColor: Colors.blue[900],
+      margin: const EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 20),
     );
   }
 }

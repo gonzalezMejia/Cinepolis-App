@@ -36,11 +36,10 @@ class MainController extends GetxController {
   void onInit() async {
     super.onInit();
     navigationItems = [
-      TabItem(Icons.person, const ProfilePage(), 'Perfil'),
-      TabItem(FontAwesomeIcons.home, const HomePage(),
-          'Inicio'), //todo ingresar las nuevas pages aqui
-      TabItem(FontAwesomeIcons.hotdog, const CandyStorePage(), 'Dulcería'),
+      TabItem(FontAwesomeIcons.home, const HomePage(), 'Inicio'),
       TabItem(Icons.theaters, const BillboardPage(), 'Cartelera'),
+      TabItem(FontAwesomeIcons.hotdog, const CandyStorePage(), 'Dulcería'),
+      TabItem(Icons.person, const ProfilePage(), 'Perfil'),
     ];
     await _service.checkUser().then((existingUser) async {
       profile.value = await _employeeService

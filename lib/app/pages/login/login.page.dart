@@ -11,12 +11,13 @@ class LoginPage extends GetView<LoginController> {
     return Scaffold(
       body: ListView(physics: const BouncingScrollPhysics(), children: <Widget>[
         Center(child: Image.asset('assets/images/cinepolis.png'))
-            .paddingAll(40),
+            .paddingOnly(top: 40, bottom: 17),
+        Center(child: title(context)).paddingOnly(bottom: 23),
         _user(controller.username.value, context),
         _password(controller.password.value, context)
-            .paddingOnly(top: 16, bottom: 16),
-        _containButton(context).paddingOnly(top: 25),
-      ]).paddingOnly(top: 10, bottom: 50, left: 16, right: 16),
+            .paddingOnly(top: 20, bottom: 30),
+        _containButton(context),
+      ]).paddingOnly(top: 10, left: 16, right: 16),
     );
   }
 
@@ -35,7 +36,7 @@ class LoginPage extends GetView<LoginController> {
         child: CustomLoadingButton(
             btnController: controller.rondButton.value,
             text: '${controller.loginText}',
-            color: Colors.blue,
+            color: Theme.of(context).indicatorColor,
             onPressed: () => controller.startTime()),
       );
     });
@@ -49,12 +50,13 @@ class LoginPage extends GetView<LoginController> {
       decoration: InputDecoration(
         border: const OutlineInputBorder(),
         labelText: "Usuario",
-        labelStyle: TextStyle(color: Theme.of(context).hoverColor),
+        labelStyle: TextStyle(color: Theme.of(context).primaryColorLight),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Theme.of(context).hoverColor),
-        ),
+            borderSide: BorderSide(color: Theme.of(context).primaryColorLight),
+            borderRadius: BorderRadius.circular(15)),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Theme.of(context).hoverColor),
+          borderSide: BorderSide(color: Colors.blue[900]!, width: 2),
+          borderRadius: BorderRadius.circular(15),
         ),
       ),
     );
@@ -69,14 +71,28 @@ class LoginPage extends GetView<LoginController> {
       decoration: InputDecoration(
         border: const OutlineInputBorder(),
         labelText: "Contraseña",
-        labelStyle: TextStyle(color: Theme.of(context).hoverColor),
+        labelStyle: TextStyle(color: Theme.of(context).primaryColorLight),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Theme.of(context).hoverColor),
-        ),
+            borderSide: BorderSide(color: Theme.of(context).primaryColorLight),
+            borderRadius: BorderRadius.circular(15)),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Theme.of(context).hoverColor),
+          borderSide: BorderSide(color: Colors.blue[900]!, width: 2),
+          borderRadius: BorderRadius.circular(15),
         ),
       ),
+    );
+  }
+
+  Text title(BuildContext context) {
+    return Text(
+      "LA MAGIA DEL CINE EN TUS MANOS",
+      softWrap: true,
+      maxLines: 2,
+      textAlign: TextAlign.center,
+      style: Theme.of(context)
+          .textTheme
+          .headline2!
+          .apply(fontWeightDelta: 1, color: Theme.of(context).indicatorColor),
     );
   }
 }

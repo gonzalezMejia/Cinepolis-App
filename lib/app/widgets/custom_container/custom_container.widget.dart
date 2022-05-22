@@ -16,12 +16,13 @@ class CustomContainer extends StatelessWidget {
     return InputDecorator(
       decoration: InputDecoration(
         labelText: labelText,
-        labelStyle: TextStyle(color: Theme.of(context).hoverColor),
+        labelStyle: TextStyle(color: Theme.of(context).indicatorColor),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Theme.of(context).hoverColor),
+          borderSide: BorderSide(color: Theme.of(context).indicatorColor),
+          borderRadius: BorderRadius.circular(20),
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(20),
         ),
       ),
       child: Column(

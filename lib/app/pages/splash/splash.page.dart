@@ -8,8 +8,7 @@ class SplashPage extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawerScrimColor: Theme.of(context).scaffoldBackgroundColor,
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: Theme.of(context).indicatorColor,
       body: SafeArea(
         child: Center(
           child: Column(

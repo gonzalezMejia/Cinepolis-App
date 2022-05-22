@@ -1,3 +1,15 @@
+// To parse this JSON data, do
+//
+//     final moviesModel = moviesModelFromJson(jsonString);
+
+import 'dart:convert';
+
+List<MoviesModel> moviesModelFromJson(String str) => List<MoviesModel>.from(
+    json.decode(str).map((x) => MoviesModel.fromJson(x)));
+
+String moviesModelToJson(List<MoviesModel> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
 class MoviesModel {
   MoviesModel({
     this.id,
@@ -6,6 +18,7 @@ class MoviesModel {
     this.duracion,
     this.traierUrl,
     this.costo,
+    this.photo,
     this.sinopsis,
     this.clasificacion,
     this.actores,
@@ -13,69 +26,47 @@ class MoviesModel {
     this.isEstreno,
   });
 
-  MoviesModel.fromJson(dynamic json) {
-    id = json['id'];
-    nombre = json['nombre'];
-    categorias = json['categorias'];
-    duracion = json['duracion'];
-    traierUrl = json['traierUrl'];
-    costo = json['costo'];
-    sinopsis = json['sinopsis'];
-    clasificacion = json['clasificacion'];
-    actores = json['actores'];
-    directores = json['directores'];
-    isEstreno = json['isEstreno'];
-  }
   int? id;
   String? nombre;
   String? categorias;
   int? duracion;
   String? traierUrl;
   double? costo;
+  String? photo;
   String? sinopsis;
   String? clasificacion;
   String? actores;
   String? directores;
   bool? isEstreno;
-  MoviesModel copyWith({
-    int? id,
-    String? nombre,
-    String? categorias,
-    int? duracion,
-    String? traierUrl,
-    double? costo,
-    String? sinopsis,
-    String? clasificacion,
-    String? actores,
-    String? directores,
-    bool? isEstreno,
-  }) =>
-      MoviesModel(
-        id: id ?? this.id,
-        nombre: nombre ?? this.nombre,
-        categorias: categorias ?? this.categorias,
-        duracion: duracion ?? this.duracion,
-        traierUrl: traierUrl ?? this.traierUrl,
-        costo: costo ?? this.costo,
-        sinopsis: sinopsis ?? this.sinopsis,
-        clasificacion: clasificacion ?? this.clasificacion,
-        actores: actores ?? this.actores,
-        directores: directores ?? this.directores,
-        isEstreno: isEstreno ?? this.isEstreno,
+
+  factory MoviesModel.fromJson(Map<String, dynamic> json) => MoviesModel(
+        id: json["id"] == null ? null : json["id"],
+        nombre: json["nombre"] == null ? null : json["nombre"],
+        categorias: json["categorias"] == null ? null : json["categorias"],
+        duracion: json["duracion"] == null ? null : json["duracion"],
+        traierUrl: json["traierUrl"] == null ? null : json["traierUrl"],
+        costo: json["costo"] == null ? null : json["costo"].toDouble(),
+        photo: json["photo"] == null ? null : json["photo"],
+        sinopsis: json["sinopsis"] == null ? null : json["sinopsis"],
+        clasificacion:
+            json["clasificacion"] == null ? null : json["clasificacion"],
+        actores: json["actores"] == null ? null : json["actores"],
+        directores: json["directores"] == null ? null : json["directores"],
+        isEstreno: json["isEstreno"] == null ? null : json["isEstreno"],
       );
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = id;
-    map['nombre'] = nombre;
-    map['categorias'] = categorias;
-    map['duracion'] = duracion;
-    map['traierUrl'] = traierUrl;
-    map['costo'] = costo;
-    map['sinopsis'] = sinopsis;
-    map['clasificacion'] = clasificacion;
-    map['actores'] = actores;
-    map['directores'] = directores;
-    map['isEstreno'] = isEstreno;
-    return map;
-  }
+
+  Map<String, dynamic> toJson() => {
+        "id": id == null ? null : id,
+        "nombre": nombre == null ? null : nombre,
+        "categorias": categorias == null ? null : categorias,
+        "duracion": duracion == null ? null : duracion,
+        "traierUrl": traierUrl == null ? null : traierUrl,
+        "costo": costo == null ? null : costo,
+        "photo": photo == null ? null : photo,
+        "sinopsis": sinopsis == null ? null : sinopsis,
+        "clasificacion": clasificacion == null ? null : clasificacion,
+        "actores": actores == null ? null : actores,
+        "directores": directores == null ? null : directores,
+        "isEstreno": isEstreno == null ? null : isEstreno,
+      };
 }

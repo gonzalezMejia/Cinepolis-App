@@ -13,29 +13,39 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Obx(() => controller.loading.value
         ? const ProgressPrimary()
-        : CustomScrollView(shrinkWrap: true, slivers: [
-            //static widgets
-            _getPromotions(context),
-            SliverList(
-                delegate: SliverChildListDelegate([
-              _listNewsWidget(context),
-            ]))
-          ]));
+        : SafeArea(
+            child: CustomScrollView(shrinkWrap: true, slivers: [
+              //static widgets
+              _getPromotions(context),
+              SliverList(
+                  delegate: SliverChildListDelegate([
+                _listNewsWidget(context),
+              ]))
+            ]),
+          ));
   }
 
   Widget _getPromotions(BuildContext context) {
     return ExtendedSliverAppbar(
-      isOpacityFadeWithTitle: false,
+      title: Center(
+        child: Text(
+          'CINEPOLIS',
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.headline2,
+        ),
+      ),
+      crossAxisAlignment: CrossAxisAlignment.center,
+      isOpacityFadeWithTitle: true,
+      leading: Container(),
       background: Container(
-        color: Theme.of(context).primaryColor,
+        color: Colors.white,
         child: CarouselSlider(
           options: CarouselOptions(
             scrollPhysics: const BouncingScrollPhysics(),
-            height: MediaQuery.of(context).size.height * .33,
+            height: MediaQuery.of(context).size.height * 0.26,
             disableCenter: true,
             autoPlay: true,
-            viewportFraction: 0.8,
-            aspectRatio: 2.0,
+            viewportFraction: 0.75,
             pageSnapping: true,
             enlargeCenterPage: true,
             scrollDirection: Axis.horizontal,
@@ -54,12 +64,15 @@ class HomePage extends GetView<HomeController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 22, top: 20),
+        Padding(
+          padding: const EdgeInsets.only(left: 15, top: 20),
           child: Text(
             "Cartelera",
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          ),
+            style: Theme.of(context)
+                .textTheme
+                .subtitle1!
+                .apply(fontWeightDelta: 2),
+          ).paddingOnly(bottom: 10),
         ),
         ListView.builder(
             scrollDirection: Axis.vertical,
@@ -77,8 +90,13 @@ class HomePage extends GetView<HomeController> {
   //carrusel
   Widget uploadImage(String i, BuildContext context) {
     return Card(
-      color: Theme.of(context).primaryColor,
-      borderOnForeground: false,
+      color: Colors.blue[900],
+      shape: RoundedRectangleBorder(
+        side: BorderSide(color: Colors.blue[400]!, width: 2),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      semanticContainer: true,
+      clipBehavior: Clip.hardEdge,
       child: Hero(
         tag: 'image$i',
         child: GestureDetector(
