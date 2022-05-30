@@ -10,9 +10,7 @@ class BillBoardController extends GetxController {
   BillBoardController(this._moviesService);
 
   var videoPlayerController = VideoPlayerController.network("").obs;
-  var chewieController =
-      ChewieController(videoPlayerController: VideoPlayerController.network(''))
-          .obs;
+  var chewieController = ChewieController(videoPlayerController: VideoPlayerController.network('')).obs;
 
   final IMoviesService _moviesService;
   var movies = <MoviesModel>[].obs;
@@ -55,8 +53,9 @@ class BillBoardController extends GetxController {
         autoPlay: false,
         looping: true,
         allowMuting: false,
-        allowFullScreen: false,
+        allowFullScreen: true,
         showOptions: false,
+        fullScreenByDefault: false,
         aspectRatio: 16 / 9,
         materialProgressColors: ChewieProgressColors(
             playedColor: Colors.blue[900]!,

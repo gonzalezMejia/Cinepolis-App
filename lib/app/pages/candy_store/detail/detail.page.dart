@@ -1,5 +1,5 @@
-import 'package:cinepolis/data/models/entities/movies/movies.model.dart';
-import 'package:cinepolis/data/models/entities/promotions/products.model.dart';
+
+import 'package:cinepolis/data/models/entities/products/products.model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +20,7 @@ class ProductsItem extends StatelessWidget {
         ),
         child: ListTile(
           subtitle: Row(children: [
-            _imageContain(context, model.photo!),
+            Flexible(child: _imageContain(context, model.photo!)),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:cinepolis/app/pages/billboard/billboard.controller.dart';
 import 'package:cinepolis/app/pages/main/home/home.controller.dart';
 import 'package:cinepolis/app/pages/main/home/widgets/news_item.widget.dart';
@@ -18,6 +19,7 @@ class HomePage extends GetView<HomeController> {
             child: CustomScrollView(shrinkWrap: true, slivers: [
               //static widgets
               _getPromotions(context),
+
               SliverList(
                   delegate: SliverChildListDelegate([
                 _listNewsWidget(context),
@@ -35,9 +37,13 @@ class HomePage extends GetView<HomeController> {
           style: Theme.of(context).textTheme.headline2,
         ),
       ),
+      actions: Badge(
+        badgeContent: Text("5"),
+          alignment: Alignment.topLeft,
+          padding: EdgeInsets.all(8),
+          child: IconButton(icon: const Icon(Icons.shopping_cart_outlined),onPressed: (){})).paddingOnly(top: 5,right: 5),
       crossAxisAlignment: CrossAxisAlignment.center,
       isOpacityFadeWithTitle: true,
-      leading: Container(),
       background: Container(
         color: Colors.white,
         child: CarouselSlider(

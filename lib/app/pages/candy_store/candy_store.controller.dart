@@ -1,4 +1,4 @@
-import 'package:cinepolis/data/models/entities/promotions/products.model.dart';
+import 'package:cinepolis/data/models/entities/products/products.model.dart';
 import 'package:cinepolis/data/services/products/products.contract.dart';
 import 'package:get/get.dart';
 

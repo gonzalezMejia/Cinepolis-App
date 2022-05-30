@@ -55,9 +55,10 @@ class MsgUtils {
   static Future<bool> exit(BuildContext context, String message,
       GestureTapCallback onConfirm) async {
     final result = await Get.dialog(AlertDialog(
+      backgroundColor: Colors.white,
       title: const Text(
         "Advertencia",
-        style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+        style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold,color: Colors.black87),
       ),
       content: Text(
         message,
