@@ -19,13 +19,14 @@ class HomeController extends GetxController {
   var user = User.fromVoid().obs;
   var movies = <MoviesModel>[].obs;
   var profile = <UserDetail>[].obs;
+  var count= 0.obs;
 
   int selectedBranchId = 0;
   var loading = false.obs;
   var summaryLoading = false.obs;
   var promotions = <PromotionsModel>[].obs;
 
-  HomeController(this._service, this._moviesService, this._productService);
+  HomeController(this._service, this._moviesService, this._productService,this._shoppingCardService);
 
   @override
   void onInit() async {
@@ -42,6 +43,7 @@ class HomeController extends GetxController {
       //Noticias
       movies.value = await _moviesService.getSummaryMovies();
       promotions.value = await _productService.getPromotions();
+      count.value = await _shoppingCardService.getCountShopping(user.value.id);
     } else {
       Get.offAllNamed(Routes.login);
     }

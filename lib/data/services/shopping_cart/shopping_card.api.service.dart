@@ -17,8 +17,7 @@ class ShoppingCardApiService extends BaseService implements IShoppingCardService
     var userJson = await provider.request<int>(
         RequestMethod.get, '${_recruitmentUrl}api/carrito/count/2',
         useDefaultUrl: false);
-
-    return int.tryParse(userJson)??0;
+    return int.tryParse(userJson.toString())??0;
   }
 
   @override

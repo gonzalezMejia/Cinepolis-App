@@ -1,13 +1,13 @@
-import 'package:badges/badges.dart';
+
 import 'package:cinepolis/app/pages/billboard/billboard.controller.dart';
 import 'package:cinepolis/app/pages/main/home/home.controller.dart';
 import 'package:cinepolis/app/pages/main/home/widgets/news_item.widget.dart';
 import 'package:cinepolis/app/utils/msg_options.utils.dart';
 import 'package:cinepolis/app/widgets/progress/progress.widget.dart';
-import 'package:extended_sliver/extended_sliver.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+
 
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class HomePage extends GetView<HomeController> {
         : SafeArea(
             child: CustomScrollView(shrinkWrap: true, slivers: [
               //static widgets
-              _getPromotions(context),
+             // _getPromotions(context),
 
               SliverList(
                   delegate: SliverChildListDelegate([
@@ -28,8 +28,9 @@ class HomePage extends GetView<HomeController> {
           ));
   }
 
-  Widget _getPromotions(BuildContext context) {
+  /*Widget _getPromotions(BuildContext context) {
     return ExtendedSliverAppbar(
+      leading: null,
       title: Center(
         child: Text(
           'CINEPOLIS',
@@ -38,7 +39,7 @@ class HomePage extends GetView<HomeController> {
         ),
       ),
       actions: Badge(
-        badgeContent: Text("5"),
+        badgeContent: Text(controller.count.value.toString()),
           alignment: Alignment.topLeft,
           padding: EdgeInsets.all(8),
           child: IconButton(icon: const Icon(Icons.shopping_cart_outlined),onPressed: (){})).paddingOnly(top: 5,right: 5),
@@ -65,7 +66,7 @@ class HomePage extends GetView<HomeController> {
         ),
       ),
     );
-  }
+  }*/
 
   Widget _listNewsWidget(BuildContext context) {
     return Column(
