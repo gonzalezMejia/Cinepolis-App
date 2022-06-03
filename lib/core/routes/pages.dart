@@ -36,6 +36,6 @@ abstract class Pages {
     GetPage(
         name: Routes.payment,
         page: () => const PaymentPage(),
-        binding: MovieDetailBinding())
+        binding: PaymentBinding())
   ];
 }

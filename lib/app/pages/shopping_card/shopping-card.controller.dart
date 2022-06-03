@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cinepolis/core/routes/pages.dart';
 import 'package:cinepolis/data/models/entities/products/shopping_product.model.dart';
 import 'package:cinepolis/data/models/entities/tickets/shopping_ticket.model.dart';
@@ -43,17 +45,32 @@ class ShoppingCardController extends GetxController {
       payment.total= payment.total + element.productos!.first.precioV!;
       payment.products.add(element);
     });
-    Get.toNamed("${Routes.payment}?paymentData=${payment}");
+    Get.toNamed("${Routes.payment}?paymentData=${json.encode(payment.toJson())}");
   }
 
 
 }
 
 class PaymentData {
-  double total;
-  List<ShoppingTicketModel> tickets;
-  List<ShoppingProductModel>products;
+  double total=0;
+  List<ShoppingTicketModel> tickets=[];
+  List<ShoppingProductModel>products=[];
 
   PaymentData(this.total,this.products,this.tickets);
+
+  PaymentData.fromJson(dynamic json) {
+    total = json['total'];
+    json['tickets'].forEach((v) =>tickets.add(ShoppingTicketModel.fromJson(v)));
+    json['products'].forEach((v) =>products.add(ShoppingProductModel.fromJson(v)));
+  }
+
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['total'] = total;
+    map['tickets'] = tickets.map((v) => v.toJson()).toList();
+    map['products'] = products.map((v) => v.toJson()).toList();
+    return map;
+  }
 
 }

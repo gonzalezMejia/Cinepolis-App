@@ -5,7 +5,6 @@ import 'package:cinepolis/app/widgets/app_bar/simple_app_bar/simple_app_bar.widg
 import 'package:cinepolis/app/widgets/custom_button/custom_button_large.widget.dart';
 import 'package:cinepolis/app/widgets/progress/progress.widget.dart';
 import 'package:cinepolis/core/routes/pages.dart';
-import 'package:cinepolis/data/models/entities/products/shopping_product.model.dart';
 import 'package:cinepolis/data/models/entities/tickets/shopping_ticket.model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -96,32 +95,4 @@ class TicketsItem  extends StatelessWidget{
             fit: BoxFit.cover))
         .paddingAll(5);
   }
-}
-
-class ProductItem  extends StatelessWidget{
-  final ShoppingProductModel element;
-  ProductItem(this.element);
-
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(element.productos!.first.producto!, style: Theme.of(context).textTheme.subtitle1),
-      leading: _imageContain(context,element.productos!.first.photo!),
-
-
-    );
-  }
-
-  Widget _imageContain(BuildContext context, String url) {
-    return ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
-        child: Image.network(url,
-            width: MediaQuery.of(context).size.width,
-            height: 200,
-            fit: BoxFit.cover))
-        .paddingAll(5);
-  }
-
-
 }
