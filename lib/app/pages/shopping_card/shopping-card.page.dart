@@ -1,5 +1,10 @@
+import 'dart:convert';
+import 'package:cinepolis/app/pages/shopping_card/widgets/products_shopping.item.widget.dart';
+import 'package:cinepolis/app/pages/shopping_card/widgets/tickets_shopping.item.widget.dart';
 import 'package:cinepolis/app/widgets/app_bar/simple_app_bar/simple_app_bar.widget.dart';
+import 'package:cinepolis/app/widgets/custom_button/custom_button_large.widget.dart';
 import 'package:cinepolis/app/widgets/progress/progress.widget.dart';
+import 'package:cinepolis/core/routes/pages.dart';
 import 'package:cinepolis/data/models/entities/products/shopping_product.model.dart';
 import 'package:cinepolis/data/models/entities/tickets/shopping_ticket.model.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +22,15 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
           return controller.loading.value
               ? const Center(child: ProgressPrimary())
               : ListView(
+            physics: const NeverScrollableScrollPhysics(),
             children: [
               _getTickets(context),
-              _getProducts(context)
+              _getProducts(context),
+
+              Visibility(
+                replacement: CustomButtonLarge(text: "Pagar Todo",onPressed: ()=>controller.onPayment()),
+                  visible:  controller.tickets.isEmpty && controller.products.isEmpty,
+                  child: Text("¡AUN NO HAY NADA POR AQUÍ!",textAlign: TextAlign.center, style: Theme.of(context).textTheme.overline))
             ],
           );
         })
@@ -27,34 +38,36 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
   }
 
   _getTickets(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("BOLETOS",textAlign: TextAlign.start ,style: Theme.of(context).textTheme.subtitle1),
-        Container(
-          child: ListView(
-            children: controller.tickets.map((element) => TicketsItem(element)).toList(),
+    return Visibility(
+      visible: controller.tickets.isNotEmpty,
+      child: ListView(
+        shrinkWrap: true,
+        children: [
+          Text("BOLETOS",textAlign: TextAlign.start ,style: Theme.of(context).textTheme.overline).paddingOnly(left: 25,top: 25),
+          ListView(
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
+            children: controller.tickets.map((element) => TicketsShoppingItem(element,()=>Get.toNamed("${Routes.movieDetail}?model=${json.encode(element.horarios!.pelicula!.toJson())}"))).toList(),
           ).paddingAll(10),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
   _getProducts(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("PRODUCTOS",textAlign: TextAlign.start, style: Theme.of(context).textTheme.subtitle1),
-        Container(
-          child: ListView(
-            children: controller.products.map((element) => ProductItem(element)).toList(),
+    return Visibility(
+      visible: controller.products.isNotEmpty,
+      child: ListView(
+        shrinkWrap: true,
+        children: [
+          Text("PRODUCTOS",textAlign: TextAlign.start, style: Theme.of(context).textTheme.overline).paddingOnly(left: 25,top: 25),
+          ListView(
+            physics: const NeverScrollableScrollPhysics(),
+            children: controller.products.map((element) => ProductsShoppingItem(element.productos!.first,()=>element.productos!.first)).toList(),
             shrinkWrap: true,
           ).paddingAll(10),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
@@ -79,8 +92,7 @@ class TicketsItem  extends StatelessWidget{
     return ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(20)),
         child: Image.network(url,
-            width: MediaQuery.of(context).size.width,
-            height: 200,
+           // width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover))
         .paddingAll(5);
   }

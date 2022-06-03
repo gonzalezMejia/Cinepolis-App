@@ -1,9 +1,12 @@
 // ignore_for_file: unnecessary_new
 
+import 'dart:convert';
+
 import 'package:cinepolis/app/pages/billboard/billboard.controller.dart';
 import 'package:cinepolis/app/pages/main/home/widgets/news_item.widget.dart';
 import 'package:cinepolis/app/widgets/app_bar/simple_app_bar/simple_app_bar.widget.dart';
 import 'package:cinepolis/app/widgets/progress/progress.widget.dart';
+import 'package:cinepolis/core/routes/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,7 +34,7 @@ class BillboardPage extends GetView<BillBoardController> {
         clipBehavior: Clip.antiAlias,
         itemBuilder: (_, i) {
           return NewsItem(controller.movies[i],
-              () => controller.goDetailMovie(controller.movies[i]));
+              () => Get.toNamed("${Routes.movieDetail}?model=${json.encode(controller.movies[i].toJson())}"));
         });
   }
 }

@@ -36,10 +36,9 @@ class SplashController extends GetxController {
 
   checkLoginUser() async {
     var currentUser = await _service.checkUser();
-    if (currentUser != null && currentUser.id != 0) {
-      Get.offAllNamed(Routes.main);
-    } else {
-      Get.offAllNamed(Routes.login);
-    }
+    print(currentUser!.toJson());
+    if (currentUser.id ==0) Get.offAllNamed(Routes.login);
+     else Get.offAllNamed(Routes.main);
+
   }
 }

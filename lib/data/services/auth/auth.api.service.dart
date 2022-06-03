@@ -3,53 +3,47 @@ import 'package:cinepolis/app/utils/msg.utils.dart';
 import 'package:cinepolis/app/utils/storage.utils.dart';
 import 'package:cinepolis/core/values/enviroments.dart';
 import 'package:cinepolis/core/values/globals.dart';
-import 'package:cinepolis/data/models/entities/token/token_response.model.dart';
 import 'package:cinepolis/data/models/entities/users/user.model.dart';
 import 'package:cinepolis/data/models/enums/request_method.enum.dart';
 import 'package:cinepolis/data/services/auth/auth.contract.dart';
 import 'package:cinepolis/data/services/base.service.dart';
 
 class AuthApiService extends BaseService implements IAuthService {
-  final String ssoUrl = Environments.ssoUrl;
+  final String _reclutamientoUrl = Environments.recruitmentUrl;
 
   @override
-  Future<User?> singIn(String username, String password) async {
-    try {
-      // Send Token
-      var jsonTokenResponse = await provider.request<TokenResponse>(
-          RequestMethod.post, '$ssoUrl/OAuth/Token',
-          useDefaultUrl: false,
-          body:
-              'username=$username&password=$password&grant_type=password&scope=pTUOcr01wJjbFTdRBDmRcA==');
+  Future<User> singIn(String username, String password) async {
+try{
+      var user=User(pass: password,email: username,age: 0,id: 0,genero: ".",name: ".",fAdmission:".",photo:".",secondName: ".",telephone: 0);
+      Map<String, dynamic> invoiceJson = user.toJson();
+      String body = jsonEncode(invoiceJson);
 
-      // Save token in local storage
-      LocalStorageUtils.setStringKey(Globals.tokenKey,
-          TokenResponse.fromJson(jsonTokenResponse).accessToken);
-
-      // Get User Value
       var userJson = await provider.request<User>(
-          RequestMethod.get, '$ssoUrl/api/values',
-          useDefaultUrl: false);
+          RequestMethod.post, "${_reclutamientoUrl}api/auth/token",
+          useDefaultUrl: false, body: body);
 
-      LocalStorageUtils.setStringKey(
-          Globals.currentUserKey, jsonEncode(userJson));
+      var userResponse= User.fromJson(userJson);
 
-      return User.fromJson(userJson);
-    } catch (e) {
-      SnackUtils.error('Nombre de usuario y/o contraseña incorrecto.',
-          'Credenciales Incorrectas');
-      return null;
+     LocalStorageUtils.setStringKey(Globals.tokenKey, userResponse.id.toString());   // Save token in local storage
+      return userResponse;}
+    catch(e){
+      print(e.toString());
+      return SnackUtils.error("Correo o contraseña invalido", "Error");
     }
   }
 
   @override
   Future<User?> checkUser() async {
-    var userJson =
-        await LocalStorageUtils.getStringByKey(Globals.currentUserKey);
-    if (userJson.isEmpty) {
-      return null;
-    } else {
-      return User.fromJson(json.decode(userJson));
+    try{
+    var userJson = await LocalStorageUtils.getStringByKey(Globals.tokenKey);
+    print(userJson);
+
+      var user = await provider.request<User>(    // Get User Value
+        RequestMethod.get, '${_reclutamientoUrl}api/auth/byId/$userJson',
+        useDefaultUrl: false);
+      return User.fromJson(user);
+    }catch(e){
+      return User.fromVoid();
     }
   }
 }

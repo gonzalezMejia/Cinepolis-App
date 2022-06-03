@@ -6,7 +6,6 @@ import 'package:cinepolis/data/models/entities/users/user_detail.model.dart';
 import 'package:cinepolis/data/services/auth/auth.contract.dart';
 import 'package:cinepolis/data/services/movies/movies.contract.dart';
 import 'package:cinepolis/data/services/products/products.contract.dart';
-import 'package:cinepolis/data/services/shopping_cart/shopping_card.contract.dart';
 import 'package:intl/intl.dart';
 import 'package:get/get.dart';
 
@@ -14,19 +13,17 @@ class HomeController extends GetxController {
   late final IAuthService _service;
   late final IMoviesService _moviesService;
   late final IProductsService _productService;
-  late final IShoppingCardService _shoppingCardService;
 
   var user = User.fromVoid().obs;
   var movies = <MoviesModel>[].obs;
   var profile = <UserDetail>[].obs;
-  var count= 0.obs;
 
   int selectedBranchId = 0;
   var loading = false.obs;
   var summaryLoading = false.obs;
   var promotions = <PromotionsModel>[].obs;
 
-  HomeController(this._service, this._moviesService, this._productService,this._shoppingCardService);
+  HomeController(this._service, this._moviesService, this._productService);
 
   @override
   void onInit() async {
@@ -43,7 +40,6 @@ class HomeController extends GetxController {
       //Noticias
       movies.value = await _moviesService.getSummaryMovies();
       promotions.value = await _productService.getPromotions();
-      count.value = await _shoppingCardService.getCountShopping(user.value.id);
     } else {
       Get.offAllNamed(Routes.login);
     }

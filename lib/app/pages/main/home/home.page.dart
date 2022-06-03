@@ -1,9 +1,11 @@
 
-import 'package:cinepolis/app/pages/billboard/billboard.controller.dart';
+import 'dart:convert';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cinepolis/app/pages/main/home/home.controller.dart';
 import 'package:cinepolis/app/pages/main/home/widgets/news_item.widget.dart';
 import 'package:cinepolis/app/utils/msg_options.utils.dart';
 import 'package:cinepolis/app/widgets/progress/progress.widget.dart';
+import 'package:cinepolis/core/routes/pages.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,12 +18,29 @@ class HomePage extends GetView<HomeController> {
     return Obx(() => controller.loading.value
         ? const ProgressPrimary()
         : SafeArea(
-            child: CustomScrollView(shrinkWrap: true, slivers: [
+            child: CustomScrollView(
+                shrinkWrap: true, slivers: [
               //static widgets
              // _getPromotions(context),
-
               SliverList(
                   delegate: SliverChildListDelegate([
+                    CarouselSlider(
+                      options: CarouselOptions(
+                        scrollPhysics: const BouncingScrollPhysics(),
+                        height: MediaQuery.of(context).size.height * 0.26,
+                        disableCenter: true,
+                        autoPlay: true,
+                        viewportFraction: 0.75,
+                        pageSnapping: true,
+                        enlargeCenterPage: true,
+                        scrollDirection: Axis.horizontal,
+                        autoPlayCurve: Curves.easeOutQuart,
+                        enlargeStrategy: CenterPageEnlargeStrategy.scale,
+                      ),
+                      items: controller.promotions
+                          .map((i) => uploadImage(i.photo!, context))
+                          .toList(),
+                    ),
                 _listNewsWidget(context),
               ]))
             ]),
@@ -91,8 +110,7 @@ class HomePage extends GetView<HomeController> {
             itemBuilder: (_, i) {
               return NewsItem(
                   controller.movies[i],
-                  () => Get.find<BillBoardController>()
-                      .goDetailMovie(controller.movies[i]));
+                  () => Get.toNamed("${Routes.movieDetail}?model=${json.encode(controller.movies[i].toJson())}"));
             })
       ],
     );

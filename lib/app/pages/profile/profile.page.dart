@@ -30,19 +30,17 @@ class ProfilePage extends GetView<ProfileController> {
                       children: <Widget>[
                         _imageContain(context).paddingOnly(top: 10),
                         _textPain(context, "Nombre",
-                                controller.profile.first.nombreCompleto)
+                                "${controller.user.value.name} ${controller.user.value.secondName}")
                             .paddingOnly(bottom: 15, top: 15),
                         _textPain(context, "Correo",
-                                controller.profile.first.correoE)
+                                controller.user.value.email!)
                             .paddingOnly(bottom: 15),
                         _textPain(
                                 context,
                                 "Télefono",
-                                controller.profile.first.telefono != 0
-                                    ? controller.profile.first.telefono
-                                        .toString()
-                                    : 'Sin Teléfono')
-                            .paddingOnly(bottom: 15),
+                                controller.user.value.telephone != null
+                                    ? controller.user.value.telephone.toString()
+                                    : 'Sin Teléfono').paddingOnly(bottom: 15),
                       ],
                     ),
                   ),
@@ -65,7 +63,7 @@ class ProfilePage extends GetView<ProfileController> {
     var found = false;
 
     var _imageNetwork = NetworkImage(
-        '${Environments.imageUrl}${controller.user.value.id != 0 ? controller.user.value.picture : 'profile.jpg'}');
+        '${Environments.imageUrl}${controller.user.value.id != 0 ? controller.user.value.photo : 'profile.jpg'}');
 
     _imageNetwork.evict().then<void>((bool success) {
       if (success) {

@@ -15,12 +15,9 @@ class CustomButtonLarge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.only(right: 15,left: 15),
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(28.8)),
-        border: Border.all(
-          color: Colors.white,
-          width: 2,
-        ),
+        borderRadius: BorderRadius.circular(10.8),
       ),
       child: ElevatedButton(
           onPressed: () => onPressed(),
@@ -35,18 +32,10 @@ class CustomButtonLarge extends StatelessWidget {
               ),
               padding: const EdgeInsets.all(20)),
           style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(defineColor(context)),
+              backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor,),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(28.0))))),
     );
-  }
-
-  Color defineColor(BuildContext context) {
-    if (color == Colors.blue) {
-      return Theme.of(context).highlightColor;
-    } else {
-      return color;
-    }
   }
 }

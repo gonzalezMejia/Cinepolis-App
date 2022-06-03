@@ -55,6 +55,21 @@ class MoviesModel {
         isEstreno: json["isEstreno"] == null ? null : json["isEstreno"],
       );
 
+  factory MoviesModel.fromVoid() => MoviesModel(
+    id: 0,
+    nombre: "",
+    categorias: "",
+    duracion: 0,
+    traierUrl: "",
+    costo: 0,
+    photo: "",
+    sinopsis: "",
+    clasificacion: "",
+    actores: "",
+    directores: "",
+    isEstreno: false,
+  );
+
   Map<String, dynamic> toJson() => {
         "id": id == null ? null : id,
         "nombre": nombre == null ? null : nombre,

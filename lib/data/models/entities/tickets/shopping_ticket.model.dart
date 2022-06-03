@@ -1,3 +1,5 @@
+import 'package:cinepolis/data/models/entities/movies/movies.model.dart';
+
 class ShoppingTicketModel {
   ShoppingTicketModel({
       this.id, 
@@ -57,25 +59,15 @@ class Horarios {
     id = json['id'];
     inicia = json['inicia'];
     isEspanish = json['isEspanish'];
-    pelicula = json['pelicula'] != null ? Pelicula.fromJson(json['pelicula']) : null;
+    pelicula = json['pelicula'] != null ? MoviesModel.fromJson(json['pelicula']) : null;
     sala = json['sala'] != null ? Sala.fromJson(json['sala']) : null;
   }
   int? id;
   String? inicia;
   bool? isEspanish;
-  Pelicula? pelicula;
+  MoviesModel? pelicula;
   Sala? sala;
-Horarios copyWith({  int? id,
-  String? inicia,
-  bool? isEspanish,
-  Pelicula? pelicula,
-  Sala? sala,
-}) => Horarios(  id: id ?? this.id,
-  inicia: inicia ?? this.inicia,
-  isEspanish: isEspanish ?? this.isEspanish,
-  pelicula: pelicula ?? this.pelicula,
-  sala: sala ?? this.sala,
-);
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = id;
@@ -130,91 +122,6 @@ Sala copyWith({  int? id,
     map['capacidad'] = capacidad;
     map['idSucursal'] = idSucursal;
     map['ocupados'] = ocupados;
-    return map;
-  }
-
-}
-
-class Pelicula {
-  Pelicula({
-      this.id, 
-      this.nombre, 
-      this.categorias, 
-      this.duracion, 
-      this.traierUrl, 
-      this.costo, 
-      this.photo, 
-      this.sinopsis, 
-      this.clasificacion, 
-      this.actores, 
-      this.directores, 
-      this.isEstreno,});
-
-  Pelicula.fromJson(dynamic json) {
-    id = json['id'];
-    nombre = json['nombre'];
-    categorias = json['categorias'];
-    duracion = json['duracion'];
-    traierUrl = json['traierUrl'];
-    costo = json['costo'];
-    photo = json['photo'];
-    sinopsis = json['sinopsis'];
-    clasificacion = json['clasificacion'];
-    actores = json['actores'];
-    directores = json['directores'];
-    isEstreno = json['isEstreno'];
-  }
-  int? id;
-  String? nombre;
-  String? categorias;
-  int? duracion;
-  String? traierUrl;
-  double? costo;
-  String? photo;
-  String? sinopsis;
-  String? clasificacion;
-  String? actores;
-  String? directores;
-  bool? isEstreno;
-Pelicula copyWith({  int? id,
-  String? nombre,
-  String? categorias,
-  int? duracion,
-  String? traierUrl,
-  double? costo,
-  String? photo,
-  String? sinopsis,
-  String? clasificacion,
-  String? actores,
-  String? directores,
-  bool? isEstreno,
-}) => Pelicula(  id: id ?? this.id,
-  nombre: nombre ?? this.nombre,
-  categorias: categorias ?? this.categorias,
-  duracion: duracion ?? this.duracion,
-  traierUrl: traierUrl ?? this.traierUrl,
-  costo: costo ?? this.costo,
-  photo: photo ?? this.photo,
-  sinopsis: sinopsis ?? this.sinopsis,
-  clasificacion: clasificacion ?? this.clasificacion,
-  actores: actores ?? this.actores,
-  directores: directores ?? this.directores,
-  isEstreno: isEstreno ?? this.isEstreno,
-);
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = id;
-    map['nombre'] = nombre;
-    map['categorias'] = categorias;
-    map['duracion'] = duracion;
-    map['traierUrl'] = traierUrl;
-    map['costo'] = costo;
-    map['photo'] = photo;
-    map['sinopsis'] = sinopsis;
-    map['clasificacion'] = clasificacion;
-    map['actores'] = actores;
-    map['directores'] = directores;
-    map['isEstreno'] = isEstreno;
     return map;
   }
 

@@ -1,73 +1,65 @@
 class User {
   User({
-    required this.id,
-    required this.name,
-    required this.surname,
-    required this.lastName,
-    required this.code,
-    required this.email,
-    required this.picture,
-    required this.password,
-    required this.operativeUnit,
-    required this.nss,
-    required this.positionId,
-    required this.birthday,
-  });
+      this.id,
+      this.name,
+      this.secondName,
+      this.fAdmission,
+      this.email,
+      this.pass,
+      this.genero,
+      this.telephone,
+      this.photo,
+      this.age,});
 
-  int id;
-  String name;
-  String surname;
-  String lastName;
-  String code;
-  String email;
-  String picture;
-  String password;
-  int operativeUnit;
-  String nss;
-  int positionId;
-  DateTime birthday;
+  User.fromJson(dynamic json) {
+    id = json['id'];
+    name = json['name'];
+    secondName = json['secondName'];
+    fAdmission = json['fAdmission'];
+    email = json['email'];
+    pass = json['pass'];
+    genero = json['genero'];
+    telephone = json['telephone'];
+    photo = json['photo'];
+    age = json['age'];
+  }
 
-  factory User.fromVoid() => User(
-      id: 0,
-      name: '',
-      surname: '',
-      lastName: '',
-      code: '',
-      email: '',
-      picture: '',
-      password: '',
-      operativeUnit: 0,
-      nss: '',
-      positionId: 0,
-      birthday: DateTime.now());
+  User.fromVoid() {
+    id = 0;
+    name = "";
+    secondName = "";
+    fAdmission = "";
+    email = "";
+    pass = "";
+    genero = "";
+    telephone = 0;
+    photo = "";
+    age = 0;
+  }
+  int? id;
+  String? name;
+  String? secondName;
+  String? fAdmission;
+  String? email;
+  String? pass;
+  String? genero;
+  double? telephone;
+  String? photo;
+  int? age;
 
-  factory User.fromJson(Map<String, dynamic> json) => User(
-        id: json["Id"],
-        name: json["Name"],
-        surname: json["Surname"],
-        lastName: json["LastName"],
-        code: json["Code"],
-        email: json["Email"],
-        picture: json["Picture"],
-        password: json["Password"],
-        operativeUnit: json["OperativeUnit"],
-        nss: json["Nss"],
-        positionId: json["PositionId"],
-        birthday: DateTime.parse(json["Birthday"]),
-      );
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['id'] = id;
+    map['name'] = name;
+    map['secondName'] = secondName;
+    map['fAdmission'] = fAdmission;
+    map['email'] = email;
+    map['pass'] = pass;
+    map['genero'] = genero;
+    map['telephone'] = telephone!.toInt();
+    map['photo'] = photo;
+    map['age'] = age;
+    return map;
+  }
 
-  Map<String, dynamic> toJson() => {
-        "Id": id,
-        "Name": name,
-        "Surname": surname,
-        "LastName": lastName,
-        "Code": code,
-        "Email": email,
-        "Picture": picture,
-        "Password": password,
-        "OperativeUnit": operativeUnit,
-        "Nss": nss,
-        "PositionId": positionId,
-        "Birthday": birthday.toIso8601String(),
-      };
 }

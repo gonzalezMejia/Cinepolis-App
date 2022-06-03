@@ -1,15 +1,13 @@
-import 'package:cinepolis/app/pages/billboard/billboard.controller.dart';
+import 'package:cinepolis/app/pages/billboard/detail/movie_detail.controller.dart';
 import 'package:cinepolis/app/widgets/app_bar/simple_app_bar/simple_app_bar.widget.dart';
 import 'package:cinepolis/app/widgets/progress/progress.widget.dart';
-import 'package:cinepolis/data/models/entities/movies/movies.model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:chewie/chewie.dart';
 
-class BillBoardDetailPage extends GetView<BillBoardController> {
-  const BillBoardDetailPage(this.model, {Key? key}) : super(key: key);
+class MovieDetailDetailPage extends GetView<MovieDetailController> {
+  const MovieDetailDetailPage({Key? key}) : super(key: key);
 
-  final MoviesModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +19,16 @@ class BillBoardDetailPage extends GetView<BillBoardController> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _imageContain(context, model.photo!),
+              _imageContain(context, controller.movie.value.photo!),
               Center(
-                  child: _title(context, model.nombre!)
+                  child: _title(context, controller.movie.value.nombre!)
                       .paddingOnly(left: 10, right: 10)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _card(context, model.clasificacion!, color: Colors.grey),
-                  _card(context, '${model.duracion!} min', color: Colors.black),
-                  _card(context, model.categorias!, color: Colors.blue[900]!),
+                  _card(context, controller.movie.value.clasificacion!, color: Colors.grey),
+                  _card(context, '${controller.movie.value.duracion!} min', color: Colors.black),
+                  _card(context, controller.movie.value.categorias!, color: Colors.blue[900]!),
                 ],
               ).paddingOnly(top: 8, bottom: 15),
               _subtitle(context, 'Trailer', color: Colors.blue[900]!, size: 2.3)
@@ -39,7 +37,7 @@ class BillBoardDetailPage extends GetView<BillBoardController> {
               _subtitle(context, 'Sinopsis',
                       color: Colors.blue[900]!, size: 2.3)
                   .paddingOnly(bottom: 10, left: 8),
-              _subtitle(context, model.sinopsis!, color: Colors.grey)
+              _subtitle(context, controller.movie.value.sinopsis!, color: Colors.grey)
                   .paddingOnly(bottom: 20, left: 8, right: 8),
               _subtitle(context, 'Creditos y Reparto',
                       color: Colors.blue[900]!, size: 1.5)
@@ -50,7 +48,7 @@ class BillBoardDetailPage extends GetView<BillBoardController> {
                       .paddingOnly(bottom: 15, left: 8, right: 8),
                   Flexible(
                     child:
-                        _subtitle(context, model.actores!, color: Colors.grey)
+                        _subtitle(context, controller.movie.value.actores!, color: Colors.grey)
                             .paddingOnly(bottom: 15, left: 5, right: 8),
                   ),
                 ],
@@ -60,7 +58,7 @@ class BillBoardDetailPage extends GetView<BillBoardController> {
                   _subtitle(context, 'Directores', color: Colors.grey[700]!)
                       .paddingOnly(bottom: 15, left: 8, right: 8),
                   Flexible(
-                    child: _subtitle(context, model.directores!,
+                    child: _subtitle(context, controller.movie.value.directores!,
                             color: Colors.grey)
                         .paddingOnly(bottom: 15, left: 5, right: 8),
                   ),
