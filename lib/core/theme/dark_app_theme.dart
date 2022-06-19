@@ -46,7 +46,7 @@ final ThemeData darkAppTheme = ThemeData(
     headline2: const TextStyle(fontSize: 20.0, color: Colors.white),
     headline3: const TextStyle(fontSize: 25.0, color: Colors.white),
     subtitle1: TextStyle(fontSize: 16.0, color: Colors.blue[900]),
-    bodyText1: const TextStyle(fontSize: 14.0, color: Colors.white),
+    bodyText1: const TextStyle(fontSize: 14.0, color: Colors.black54),
     headline6:
         const TextStyle(fontSize: 13.0, color: Colors.white), //item title
     subtitle2: const TextStyle(fontSize: 18.0, color: Colors.white70),

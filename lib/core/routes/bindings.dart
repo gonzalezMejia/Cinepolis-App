@@ -9,6 +9,7 @@ import 'package:cinepolis/app/pages/profile/profile.controller.dart';
 import 'package:cinepolis/app/pages/shopping_card/shopping-card.controller.dart';
 import 'package:cinepolis/app/pages/splash/splash.controller.dart';
 import 'package:cinepolis/data/services/auth/auth.contract.dart';
+import 'package:cinepolis/data/services/filemanager/file_manager.contract.dart';
 import 'package:cinepolis/data/services/movies/movies.api.service.dart';
 import 'package:cinepolis/data/services/products/products.api.service.dart';
 import 'package:cinepolis/data/services/shopping_cart/shopping_card.api.service.dart';
@@ -25,12 +26,13 @@ class SplashBinding implements Bindings {
 
 class LoginBinding implements Bindings {
   final IAuthService authService;
+  final IFileManagerService fileManagerService;
 
-  LoginBinding(this.authService);
+  LoginBinding(this.authService,this.fileManagerService);
 
   @override
   void dependencies() {
-    Get.lazyPut<LoginController>(() => LoginController(authService));
+    Get.lazyPut<LoginController>(() => LoginController(authService,fileManagerService));
   }
 }
 

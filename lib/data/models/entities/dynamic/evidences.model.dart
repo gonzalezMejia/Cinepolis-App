@@ -15,6 +15,17 @@ class Evidences {
   String? fileManagerRealName;
   String? mimeType;
 
+  factory Evidences.fromVoid() =>
+      Evidences(
+        id: 0,
+        fileManagerId: 0,
+        fileManagerName: "",
+        fileManagerExtension: "",
+        fileManagerRealName: "",
+        mimeType: "",
+      );
+
+
   factory Evidences.fromJson(Map<String, dynamic> json) =>
       Evidences(
         id: json["id"] == null ? null : json["id"],

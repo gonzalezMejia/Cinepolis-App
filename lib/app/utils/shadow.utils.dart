@@ -14,7 +14,7 @@ class ShadowUtils {
         ],
         image: DecorationImage(
           fit: BoxFit.fill,
-          image: AssetImage('assets/images/logo_esp_small.jpeg'),
+          image: AssetImage('assets/images/cinepolis.png'),
         ));
   }
 }

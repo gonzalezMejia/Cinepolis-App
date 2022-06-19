@@ -17,6 +17,7 @@ class LoginPage extends GetView<LoginController> {
         _password(controller.password.value, context)
             .paddingOnly(top: 20, bottom: 30),
         _containButton(context),
+        _signUp(context),
       ]).paddingOnly(top: 10, left: 16, right: 16),
     );
   }
@@ -93,6 +94,16 @@ class LoginPage extends GetView<LoginController> {
           .textTheme
           .headline2!
           .apply(fontWeightDelta: 1, color: Theme.of(context).indicatorColor),
+    );
+  }
+
+  _signUp(BuildContext context) {
+    return Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text("¿Todavía no tienes una cuenta?",style: Theme.of(context).textTheme.subtitle1),
+        TextButton(onPressed: ()=>controller.onSignUp(), child: const Text("Registrate"),clipBehavior: Clip.antiAlias)
+      ],
     );
   }
 }

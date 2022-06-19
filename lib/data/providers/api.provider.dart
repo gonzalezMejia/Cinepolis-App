@@ -89,7 +89,7 @@ class ApiProvider {
         return responseJson;
       case 400:
         throw BadRequestException(response.body.toString());
-      case 401:
+      case 401: throw response.body.toString();
       case 403:
         LocalStorageUtils.setStringKey(Globals.currentUserKey, '');
         Get.toNamed(Routes.login);

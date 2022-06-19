@@ -36,8 +36,6 @@ try{
   Future<User?> checkUser() async {
     try{
     var userJson = await LocalStorageUtils.getStringByKey(Globals.tokenKey);
-    print(userJson);
-
       var user = await provider.request<User>(    // Get User Value
         RequestMethod.get, '${_reclutamientoUrl}api/auth/byId/$userJson',
         useDefaultUrl: false);
@@ -45,5 +43,16 @@ try{
     }catch(e){
       return User.fromVoid();
     }
+  }
+
+  @override
+  Future singUp(User user) async{
+    var body = json.encode( user.toJson());
+    var userJson = await provider.request<dynamic>(
+        RequestMethod.post, "${_reclutamientoUrl}api/auth/sigUp",
+        useDefaultUrl: false, body: body);
+
+
+    return userJson;
   }
 }
