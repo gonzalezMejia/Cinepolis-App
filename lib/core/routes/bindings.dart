@@ -55,7 +55,7 @@ class MainBinding implements Bindings {
 class MovieDetailBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<MovieDetailController>(() => MovieDetailController());
+    Get.lazyPut<MovieDetailController>(() => MovieDetailController(MoviesApiService()));
   }
 }
 

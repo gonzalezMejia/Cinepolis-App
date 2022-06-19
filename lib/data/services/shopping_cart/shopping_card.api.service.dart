@@ -15,7 +15,7 @@ class ShoppingCardApiService extends BaseService implements IShoppingCardService
   @override
   Future<int> getCountShopping(int userId) async{
     var userJson = await provider.request<int>(
-        RequestMethod.get, '${_recruitmentUrl}api/carrito/count/2',
+        RequestMethod.get, '${_recruitmentUrl}api/carrito/count/$userId',
         useDefaultUrl: false);
     return int.tryParse(userJson.toString())??0;
   }
