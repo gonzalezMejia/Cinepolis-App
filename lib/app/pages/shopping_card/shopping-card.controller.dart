@@ -38,7 +38,9 @@ class ShoppingCardController extends GetxController {
   onPayment(){
     PaymentData payment= PaymentData(0,[],[]);
     tickets.forEach((element){
-      payment.total= payment.total + element.costo!;
+      var total= 0.0;
+      element.asientos!.forEach((element) { total=total+element.costo!;});
+      payment.total= payment.total + total;
       payment.tickets.add(element);
     });
     products.forEach((element){

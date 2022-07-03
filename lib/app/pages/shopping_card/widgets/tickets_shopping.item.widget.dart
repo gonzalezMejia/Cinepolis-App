@@ -29,7 +29,7 @@ class TicketsShoppingItem extends StatelessWidget {
                   _title(context, model.horarios!.pelicula!.nombre!),
                   _subtitle(context, "Inicio: ${model.horarios!.inicia!}").paddingOnly(top: 8),
                   _subtitle(context, "Sala: ${model.horarios!.sala!.sala!}").paddingOnly(top: 3),
-                   _subtitle(context, "Asientos: "+model.asiento!).paddingOnly(bottom: 8)
+                  // _subtitle(context, "Asientos: "+model.asiento!).paddingOnly(bottom: 8)
                 ]
               ).paddingOnly(left: 20),
             ),

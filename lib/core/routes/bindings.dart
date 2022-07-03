@@ -1,5 +1,6 @@
 import 'package:cinepolis/app/pages/billboard/billboard.controller.dart';
 import 'package:cinepolis/app/pages/billboard/detail/movie_detail.controller.dart';
+import 'package:cinepolis/app/pages/billboard/seating/seating.controller.dart';
 import 'package:cinepolis/app/pages/candy_store/candy_store.controller.dart';
 import 'package:cinepolis/app/pages/login/login.controller.dart';
 import 'package:cinepolis/app/pages/main/home/home.controller.dart';
@@ -12,6 +13,7 @@ import 'package:cinepolis/data/services/auth/auth.contract.dart';
 import 'package:cinepolis/data/services/filemanager/file_manager.contract.dart';
 import 'package:cinepolis/data/services/movies/movies.api.service.dart';
 import 'package:cinepolis/data/services/products/products.api.service.dart';
+import 'package:cinepolis/data/services/seatings/seatings.api.service.dart';
 import 'package:cinepolis/data/services/shopping_cart/shopping_card.api.service.dart';
 import 'package:get/get.dart';
 
@@ -56,6 +58,13 @@ class MovieDetailBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut<MovieDetailController>(() => MovieDetailController(MoviesApiService()));
+  }
+}
+
+class SeatingBinding implements Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut<SeatingController>(() => SeatingController(SeatingApiService()));
   }
 }
 

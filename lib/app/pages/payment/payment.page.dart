@@ -15,7 +15,10 @@ class PaymentPage extends GetView<PaymentController>{
           SizedBox(
             height: MediaQuery.of(context).size.height*.4,
             child:ListView(
-            children: controller.paymentModel.value.tickets.map((e) => _itemPayment(context, e.horarios!.pelicula!.nombre!, e.costo)).toList(),
+            children: controller.paymentModel.value.tickets.map((e) => _itemPayment(context, e.horarios!.pelicula!.nombre!,e.asientos!.map((e){ var x= 0.0;
+              x=x+e.costo!;
+            return x;})
+            )).toList(),
           ),),
           SizedBox(
             height: MediaQuery.of(context).size.height*.4,

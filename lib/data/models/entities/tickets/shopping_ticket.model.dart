@@ -1,34 +1,34 @@
 import 'package:cinepolis/data/models/entities/movies/movies.model.dart';
+import 'package:cinepolis/data/models/entities/seatings/seating.model.dart';
 
 class ShoppingTicketModel {
   ShoppingTicketModel({
       this.id, 
       this.userId, 
       this.horarios, 
+      this.asientos, 
       this.fCreation, 
-      this.isPaid, 
-      this.asiento, 
-      this.costo, 
-      this.isAdult,});
+      this.isPaid,});
 
   ShoppingTicketModel.fromJson(dynamic json) {
     id = json['id'];
     userId = json['userId'];
     horarios = json['horarios'] != null ? Horarios.fromJson(json['horarios']) : null;
+    if (json['asientos'] != null) {
+      asientos = [];
+      json['asientos'].forEach((v) {
+        asientos?.add(SeatingModel.fromJson(v));
+      });
+    }
     fCreation = json['fCreation'];
     isPaid = json['isPaid'];
-    asiento = json['asiento'];
-    costo = json['costo'];
-    isAdult = json['isAdult'];
   }
   int? id;
   int? userId;
   Horarios? horarios;
+  List<SeatingModel>? asientos;
   String? fCreation;
   bool? isPaid;
-  String? asiento;
-  double? costo;
-  bool? isAdult;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -37,11 +37,11 @@ class ShoppingTicketModel {
     if (horarios != null) {
       map['horarios'] = horarios?.toJson();
     }
+    if (asientos != null) {
+      map['asientos'] = asientos?.map((v) => v.toJson()).toList();
+    }
     map['fCreation'] = fCreation;
     map['isPaid'] = isPaid;
-    map['asiento'] = asiento;
-    map['costo'] = costo;
-    map['isAdult'] = isAdult;
     return map;
   }
 
@@ -67,7 +67,17 @@ class Horarios {
   bool? isEspanish;
   MoviesModel? pelicula;
   Sala? sala;
-
+Horarios copyWith({  int? id,
+  String? inicia,
+  bool? isEspanish,
+  MoviesModel? pelicula,
+  Sala? sala,
+}) => Horarios(  id: id ?? this.id,
+  inicia: inicia ?? this.inicia,
+  isEspanish: isEspanish ?? this.isEspanish,
+  pelicula: pelicula ?? this.pelicula,
+  sala: sala ?? this.sala,
+);
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = id;

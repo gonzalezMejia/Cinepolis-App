@@ -1,4 +1,5 @@
 import 'package:cinepolis/app/pages/billboard/detail/movie_detail.page.dart';
+import 'package:cinepolis/app/pages/billboard/seating/select_seat.page.dart';
 import 'package:cinepolis/app/pages/login/login.page.dart';
 import 'package:cinepolis/app/pages/main/main.page.dart';
 import 'package:cinepolis/app/pages/payment/payment.page.dart';
@@ -36,6 +37,10 @@ abstract class Pages {
     GetPage(
         name: Routes.payment,
         page: () => const PaymentPage(),
-        binding: PaymentBinding())
+        binding: PaymentBinding()),
+    GetPage(
+        name: Routes.seating,
+        page: () => const SelectSeatPage(),
+        binding: SeatingBinding())
   ];
 }

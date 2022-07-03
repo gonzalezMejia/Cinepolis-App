@@ -23,6 +23,19 @@ class LocationsAvailableModel {
     branchName = json['branchName'];
     directionBranch = json['directionBranch'];
   }
+  LocationsAvailableModel.fromVoid() {
+    id = 0;
+    inicia = "";
+    isEspanish = false;
+    salaId = 0;
+    sala = 0;
+    ocupados = 0;
+    capacidad = 0;
+    idSucursal =0;
+    branchName = "";
+    directionBranch = "";
+  }
+
   int? id;
   String? inicia;
   bool? isEspanish;
@@ -33,27 +46,7 @@ class LocationsAvailableModel {
   int? idSucursal;
   String? branchName;
   String? directionBranch;
-LocationsAvailableModel copyWith({  int? id,
-  String? inicia,
-  bool? isEspanish,
-  int? salaId,
-  int? sala,
-  int? ocupados,
-  int? capacidad,
-  int? idSucursal,
-  String? branchName,
-  String? directionBranch,
-}) => LocationsAvailableModel(  id: id ?? this.id,
-  inicia: inicia ?? this.inicia,
-  isEspanish: isEspanish ?? this.isEspanish,
-  salaId: salaId ?? this.salaId,
-  sala: sala ?? this.sala,
-  ocupados: ocupados ?? this.ocupados,
-  capacidad: capacidad ?? this.capacidad,
-  idSucursal: idSucursal ?? this.idSucursal,
-  branchName: branchName ?? this.branchName,
-  directionBranch: directionBranch ?? this.directionBranch,
-);
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = id;
