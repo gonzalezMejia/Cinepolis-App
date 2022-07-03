@@ -17,7 +17,7 @@ class PaymentPage extends GetView<PaymentController>{
             child:ListView(
             children: controller.paymentModel.value.tickets.map((e) => _itemPayment(context, e.horarios!.pelicula!.nombre!,e.asientos!.map((e){ var x= 0.0;
               x=x+e.costo!;
-            return x;})
+            return x;}).first
             )).toList(),
           ),),
           SizedBox(
@@ -31,7 +31,7 @@ class PaymentPage extends GetView<PaymentController>{
     );
   }
 
-  Widget _itemPayment(BuildContext context, title, price){
+  Widget _itemPayment(BuildContext context, title, double price){
     return Column(
       children: [
         const Divider(height: 2,endIndent: 5,indent: 5,thickness: 1,color: Colors.black54),

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:cinepolis/core/routes/pages.dart';
 import 'package:cinepolis/data/models/entities/products/shopping_product.model.dart';
 import 'package:cinepolis/data/models/entities/tickets/shopping_ticket.model.dart';
@@ -36,18 +34,7 @@ class ShoppingCardController extends GetxController {
   }
 
   onPayment(){
-    PaymentData payment= PaymentData(0,[],[]);
-    tickets.forEach((element){
-      var total= 0.0;
-      element.asientos!.forEach((element) { total=total+element.costo!;});
-      payment.total= payment.total + total;
-      payment.tickets.add(element);
-    });
-    products.forEach((element){
-      payment.total= payment.total + element.productos!.first.precioV!;
-      payment.products.add(element);
-    });
-    Get.toNamed("${Routes.payment}?paymentData=${json.encode(payment.toJson())}");
+    Get.toNamed("${Routes.payment}?user=${user.value.id!}");
   }
 
 

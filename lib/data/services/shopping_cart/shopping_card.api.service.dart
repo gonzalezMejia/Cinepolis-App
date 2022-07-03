@@ -4,7 +4,6 @@ import 'package:cinepolis/core/values/enviroments.dart';
 import 'package:cinepolis/data/models/entities/products/product.response.model.dart';
 import 'package:cinepolis/data/models/entities/products/shopping_product.model.dart';
 import 'package:cinepolis/data/models/entities/tickets/shopping_ticket.model.dart';
-import 'package:cinepolis/data/models/entities/tickets/ticket.response.model.dart';
 import 'package:cinepolis/data/models/enums/request_method.enum.dart';
 import 'package:cinepolis/data/services/base.service.dart';
 import 'package:cinepolis/data/services/shopping_cart/shopping_card.contract.dart';
@@ -51,8 +50,8 @@ class ShoppingCardApiService extends BaseService implements IShoppingCardService
   }
 
   @override
-  Future saveTickets(List<TicketResponseModel> tickets)async {
-    var body = json.encode(tickets.map((e) => e.toJson()));
+  Future saveTickets(ShoppingTicketModel tickets)async {
+    var body = json.encode(tickets.toJson());
     var userJson = await provider.request<dynamic>(
         RequestMethod.post, "${_recruitmentUrl}api/carrito/tickets",
         useDefaultUrl: false, body: body);

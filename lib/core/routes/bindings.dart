@@ -62,16 +62,20 @@ class MovieDetailBinding implements Bindings {
 }
 
 class SeatingBinding implements Bindings {
+  final IAuthService authService;
+
+  SeatingBinding(this.authService);
+
   @override
   void dependencies() {
-    Get.lazyPut<SeatingController>(() => SeatingController(SeatingApiService()));
+    Get.lazyPut<SeatingController>(() => SeatingController(SeatingApiService(),ShoppingCardApiService(),authService));
   }
 }
 
 class PaymentBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<PaymentController>(() => PaymentController());
+    Get.lazyPut<PaymentController>(() => PaymentController(ShoppingCardApiService()));
   }
 }
 

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:cinepolis/core/values/enviroments.dart';
 import 'package:cinepolis/data/models/entities/seatings/seating.model.dart';
 import 'package:cinepolis/data/models/enums/request_method.enum.dart';
@@ -18,17 +16,7 @@ class SeatingApiService extends BaseService implements ISeatingService {
         userJson.map((x) => SeatingModel.fromJson(x)));
   }
 
-  @override
-  Future saveSeats(List<SeatingModel> seats)async {
-    var body = json.encode(seats.map((e) => e.toJson()));
-    var userJson = await provider.request<dynamic>(
-        RequestMethod.post, "${_recruitmentUrl}api/branch/asientos",
-        useDefaultUrl: false, body: body);
 
-    var bodyResponse = json.decode(userJson.body);
-
-    return bodyResponse;
-  }
 
 
 }
