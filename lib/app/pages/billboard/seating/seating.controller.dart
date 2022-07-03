@@ -91,7 +91,7 @@ class SeatingController extends GetxController{
       seats.add(SeatingModel(
         id: 0,
         carritoTicketId: 0,
-        nombreAsiento: element['id'],
+        nombreAsiento: element['id'].toString(),
         costo:element['status']=='kids'?45.00:65.00,
         horarioId: availableLocation.value.id,
         isAdult:element['status']=='kids'?false:true,

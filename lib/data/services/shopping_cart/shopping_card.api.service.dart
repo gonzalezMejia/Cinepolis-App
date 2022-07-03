@@ -56,9 +56,7 @@ class ShoppingCardApiService extends BaseService implements IShoppingCardService
         RequestMethod.post, "${_recruitmentUrl}api/carrito/tickets",
         useDefaultUrl: false, body: body);
 
-    var bodyResponse = json.decode(userJson.body);
-
-    return bodyResponse;
+    return userJson;
   }
 
 
