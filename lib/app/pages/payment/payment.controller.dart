@@ -1,13 +1,17 @@
 import 'package:cinepolis/app/pages/shopping_card/shopping-card.controller.dart';
+import 'package:cinepolis/core/routes/pages.dart';
 import 'package:cinepolis/data/services/shopping_cart/shopping_card.contract.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class PaymentController extends GetxController{
 final IShoppingCardService _shoppingCardService;
 
 var paymentModel= PaymentData(0,[],[]).obs;
+var loading =true.obs;
 
 PaymentController(this._shoppingCardService);
+
   @override
   void onInit() async {
     super.onInit();
@@ -30,6 +34,12 @@ PaymentController(this._shoppingCardService);
       total = total +x;
     });
     paymentModel.value.total=total;
+    loading.value=false;
+  }
+
+  onClosed() {
+    Get.offNamedUntil(Routes.main, ModalRoute.withName(Routes.main));
+    return true;
   }
 
 }

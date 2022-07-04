@@ -25,7 +25,6 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
             children: [
               _getTickets(context),
               _getProducts(context),
-
               Visibility(
                 replacement: CustomButtonLarge(text: "Pagar Todo",onPressed: ()=>controller.onPayment()),
                   visible:  controller.tickets.isEmpty && controller.products.isEmpty,

@@ -1,3 +1,4 @@
+import 'package:cinepolis/app/widgets/card/custom_card_expandible.widget.dart';
 import 'package:cinepolis/data/models/entities/tickets/shopping_ticket.model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -27,8 +28,23 @@ class TicketsShoppingItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _title(context, model.horarios!.pelicula!.nombre!),
-                  _subtitle(context, "Inicio: ${model.horarios!.inicia!}").paddingOnly(top: 8),
-                  _subtitle(context, "Sala: ${model.horarios!.sala!.sala!}").paddingOnly(top: 3),
+                  _subtitle(context, "Inicio: ${model.horarios!.inicia!}").paddingOnly(top: 8,left:  15),
+                  _subtitle(context, "Sala: ${model.horarios!.sala!.sala!}").paddingOnly(top: 3,left:  15),
+                  CustomCardExpandable(labelText: "Asientos",icon: Icons.event_seat,widgetsExpand: [
+                    ListView(
+                      shrinkWrap: true,
+                      children: model.asientos!.map((e) => ListTile(
+                        title: Text("Lugar: "+e.nombreAsiento!),
+                      trailing: Text("Costo: "+e.costo.toString()),
+                      subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                        Text("Folio: "+e.id.toString()),
+                        Text(e.isAdult!?"Adulto":"Niño"),
+                      ]),
+                      )).toList()
+                    )
+                  ],)
                   // _subtitle(context, "Asientos: "+model.asiento!).paddingOnly(bottom: 8)
                 ]
               ).paddingOnly(left: 20),

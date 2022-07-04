@@ -43,6 +43,7 @@ final IMoviesService _moviesService;
   deleteProcess() {
     Get.back<MovieDetailDetailPage>();
     chewieController.value.videoPlayerController.pause();
+    return true;
   }
 
  _initializePlayer(String url) async {
