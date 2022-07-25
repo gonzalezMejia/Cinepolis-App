@@ -21,7 +21,8 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
           return controller.loading.value
               ? const Center(child: ProgressPrimary())
               : ListView(
-            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            physics: const BouncingScrollPhysics(),
             children: [
               _getTickets(context),
               _getProducts(context),
@@ -40,6 +41,7 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
       visible: controller.tickets.isNotEmpty,
       child: ListView(
         shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           Text("BOLETOS",textAlign: TextAlign.start ,style: Theme.of(context).textTheme.overline).paddingOnly(left: 25,top: 25),
           ListView(
@@ -57,6 +59,7 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
       visible: controller.products.isNotEmpty,
       child: ListView(
         shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           Text("PRODUCTOS",textAlign: TextAlign.start, style: Theme.of(context).textTheme.overline).paddingOnly(left: 25,top: 25),
           ListView(

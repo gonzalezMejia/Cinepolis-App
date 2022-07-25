@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:cinepolis/core/values/enviroments.dart';
 import 'package:cinepolis/data/models/entities/products/product.response.model.dart';
 import 'package:cinepolis/data/models/entities/products/shopping_product.model.dart';
@@ -55,6 +54,17 @@ class ShoppingCardApiService extends BaseService implements IShoppingCardService
     var userJson = await provider.request<dynamic>(
         RequestMethod.post, "${_recruitmentUrl}api/carrito/tickets",
         useDefaultUrl: false, body: body);
+
+    return userJson;
+  }
+
+  @override
+  Future payTickets(List<ShoppingTicketModel> ids)async {
+    var body = json.encode(ids.map((e) => e.toJson()));
+    var userJson = await provider.request<dynamic>(
+        RequestMethod.post, "${_recruitmentUrl}api/carrito/tickets/pay",
+        useDefaultUrl: false, body: body
+    );
 
     return userJson;
   }

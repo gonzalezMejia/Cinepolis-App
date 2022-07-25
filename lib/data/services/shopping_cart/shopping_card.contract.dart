@@ -8,4 +8,5 @@ abstract class IShoppingCardService {
   Future<List<ShoppingProductModel>> getProducts(int userId, int isPaid);
   Future saveProducts(List<ProductResponseModel> products);
   Future saveTickets(ShoppingTicketModel tickets);
+  Future payTickets(List<ShoppingTicketModel> ids);
 }

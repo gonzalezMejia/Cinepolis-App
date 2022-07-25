@@ -4,11 +4,11 @@ class CustomButton extends StatelessWidget {
   const CustomButton(
       {Key? key,
       required this.text,
-      required this.onPressed,
+        this.onPressed,
       this.color = Colors.blue})
       : super(key: key);
 
-  final GestureTapCallback onPressed;
+  final GestureTapCallback? onPressed;
   final String text;
   final Color color;
 
@@ -25,10 +25,10 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(
-                Theme.of(context).primaryColor),
+                defineColor(context)),
             foregroundColor: MaterialStateProperty.all<Color>(
                 Theme.of(context).inputDecorationTheme.fillColor!)),
-        onPressed: () => onPressed(),
+        onPressed: onPressed,
         child: Container(
             child: Text(
               text,
@@ -41,8 +41,10 @@ class CustomButton extends StatelessWidget {
   }
 
   Color defineColor(BuildContext context) {
-    if (color == Colors.blue) {
-      return Theme.of(context).colorScheme.secondary;
+    if (onPressed==null) {
+      return Colors.grey[600]!;
+    } else if(color == Colors.blue){
+      return Theme.of(context).primaryColor;
     } else {
       return color;
     }
